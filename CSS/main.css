@@ -1,5 +1,43 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
 body {
-    font-family: Poppins-Medium !important;
-    font-size: 14px;
+    font-family: 'Open Sans', 'Arial';
     overflow-x: hidden;
+}
+
+.nav-logo{
+    height: 4vh;
+}
+
+.block {
+    width: 100%;
+    height: 100vh;
+}
+
+.auto-block {
+    width: 100%;
+    height: auto;
+}
+
+.rightnav > a {
+    text-decoration: none !important;
+}
+
+.rightnav{
+    position: absolute;
+    right: 0;
+}
+
+nav {
+    background-color: #529fdb;
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 5vh;
+}
+
+#navimg{
+    position: absolute;
+    margin: 0;
+    padding: 0;
 }
