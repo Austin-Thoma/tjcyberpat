@@ -1,35 +1,80 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>TJ CyberPatriot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/home.css">
     <link rel="stylesheet" href="CSS/main.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400&display=swap" rel="stylesheet">
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <link rel="icon" href="Icon/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
 <!--
-    #3ad902 - greeen
+    #3ad902 - green
     #2b2d42 - black
     #08bdbd - blue
     #f21b3f - red
     #ff9914 - orange
 -->
+<!--
+    #2C3E50 - gray
+    #E74C3C - red
+    #3498DB - blue
+    #2980B9 - dark blue
+    #35C602 - green
+-->
+
 <body>
-    <nav>
-        <a href="index.html" id="linkimg"><img src="Icon/favicon.png" id="navimg" height="45px"></a>
+    <!-- <nav>
+        <a href="index.html" id="linkimg"><img src="Icon/logo-2.png" id="navimg"></a>
         <div class="rightnav">
-            <a href="index.html"><span style="background-color: #00adb5; border-radius: 10px;">Home</span></a>
+            <a href="index.html"><span>Home</span></a>
             <a href="comp.html"><span>Competition</span></a>
             <a href="lectures.html"><span>Lectures</span></a>
             <a href="schedule.html"><span>Schedule</span></a>
             <a href="resources.html"><span>Resources</span></a>
         </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a href="index.html" id="linkimg"><img src="Icon/green.png" id="navimg"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse rightnav" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Competition</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Lectures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Schedule</a>
+                </li>
+                <li class="nav-item" style="margin-right: 2vh">
+                    <a class="nav-link" href="#">Resources</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-    <p class="title">TJ CyberPatriot</p>
-    <div class="block"></div>
-    <div class="block"></div>
+    <div class="diag"></div>
+    <div class="block blue"></div>
 </body>
 
+<script>
+    $("#navimg").hover(function(){
+        $(this).attr('src','Icon/blue.png');
+    }, function(){
+        $(this).attr('src','Icon/green.png');
+    })
+</script>
 </html>
