@@ -1,100 +1,128 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Light.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/Lato-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Light.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Light.otf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Regular.otf");
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Bold.otf");
+    font-weight: bold;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
 
 body {
-    font-family: "Nunito", "arial" !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: "Lato";
 }
 
-.block {
-    width: 100%;
-    height: 100vh;
+body::-webkit-scrollbar {
+    width: 10px;
 }
 
-.diag {
-    border-bottom: 50vh solid red;
-    border-left: 0px solid transparent;
-    height: 0;
-    width: 60%;
-    transform: skew(-45deg);
-    margin-left: -25vh;
+body::-webkit-scrollbar-thumb {
+    /* background-color: #3bb5fc; */
+    border-radius: 20px;
 }
 
-.auto-block {
-    width: 100%;
-    height: auto;
+body::-webkit-scrollbar-thumb:hover {
+    background: #6d3dff;
 }
 
-.red {
-    background-color: #f21b3f;
+p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
-.orange {
-    background-color: #ff9914;
+.desc {
+    font-family: 'Nunito';
 }
 
-.blue {
-    background-color: #3498DB;
-}
-
-.gray {
-    background-color: #2C3E50;
-}
-
-nav {
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 5vh;
-}
-
-nav * {
+a {
     text-decoration: none !important;
 }
 
-.rightnav {
+img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+}
+
+#particles-js {
     position: absolute;
-    right: 0;
-    line-height: 5vh;
-}
-
-.rightnav>a>span {
-    color: #606470;
-    margin-right: 3vh;
-    border-radius: 1vh;
-    font-size: 1.5vh;
-    padding: 1vh
-}
-
-.rightnav>a>span:hover {
-    color: #494C55;
-}
-
-.nav-link {
-    color: #35C602 !important;
-}
-
-.nav-link:hover {
-    color: #3498DB !important;
-}
-
-#linkimg {
-    color: #ff9914;
-    position: absolute;
-    line-height: 5vh;
-    margin-left: 2vh;
-    font-size: 2vh;
-    height: 4.5vh;
-    width: 5vh;
-    border-radius: 1vh;
-    margin-top: 0.25vh;
-}
-
-#navimg {
-    position: absolute;
-    height: 3.5vh;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+    width: 100%;
+    height: 100vh;
+    background-color: #2C363F;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 }
