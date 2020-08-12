@@ -14,12 +14,9 @@ function initialize() {
         if (curr != prev) {
             if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > 1170) {
                 $("nav").css('background-color', 'transparent');
-                $("nav a").css('color', '#fff');
-                $("nav span:hover").css('color', '#3BB5FC');
                 $("nav").css('box-shadow', 'none');
             } else {
-                $("nav").css('background-color', '#2C363Fdd');
-                $("nav span:hover").css('color', '#6d3dff');
+                $("nav").css('background-color', 'rgba(0, 0, 0, 0.9)');
                 $("nav").css('box-shadow', `
                     0 2.8px 2.2px rgba(0, 0, 0, 0.014),
                     0 6.7px 5.3px rgba(0, 0, 0, 0.018),
@@ -34,6 +31,21 @@ function initialize() {
 
     $("nav").append(`
     `);
+
+    $("nav #nav-icon").on("click touchstart", function (e) {
+        if (e.type == "click" && isMobile)
+            return;
+        $(this).toggleClass('open');
+        if ($(this).attr("expanded") == "true") {
+            $(".navbar-nav").css("opacity", "0");
+            $(".navbar-nav").css("transform", "translateY(calc(-100% - 10vh))");
+            $(this).attr("expanded", "false");
+        } else {
+            $(".navbar-nav").css("opacity", "1");
+            $(".navbar-nav").css("transform", "translateY(0%)");
+            $(this).attr("expanded", "true");
+        }
+    })
 
     $.ajax({
         url: "footer.html",
