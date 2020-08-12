@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Light.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/Nunito-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/Lato-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Light.ttf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Light.otf");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Regular.otf");
+}
+
+@font-face {
+    font-family: "Metropolis";
+    src: url("fonts/Metropolis/Metropolis-Bold.otf");
+    font-weight: bold;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: "Lato";
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #a3a3a3;
+}
+
+body.norm-flat::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+}
+
+body.top-flat::-webkit-scrollbar-thumb{
+    border-radius: 0 0 10px 10px;
+}
+
+body.bot-flat::-webkit-scrollbar-thumb{
+    border-radius: 10px 10px 0 0;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #2C363F;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.desc {
+    font-family: 'Nunito';
+}
+
+a {
+    text-decoration: none !important;
+}
+
+img {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0;
+}
