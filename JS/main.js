@@ -7,18 +7,36 @@ function initialize() {
         isMobile = true;
     }
 
-    $("nav").append(`
-    <a href="index.html" id="linkimg"><img src="../Icon/logo.png" class="navimg"></a>
-    <div class="rightnav">
-        <a href="index.html"><span>Home</span></a>
-        <a href="comp.html"><span>Competition</span></a>
-        <a href="lectures.html"><span>Lectures</span></a>
-        <a href="calendar.html"><span>Calendar</span></a>
-        <a href="merch.html"><span>Merch</span></a>
-        <a href="resources.html"><span>Resources</span></a>
-    </div>
-    `);
+    var prev = -1;
+    var curr = 0;
+    setInterval(function () {
+        curr = $(window).scrollTop();
+        if (curr != prev) {
+            if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > 1170) {
+                $("nav").css('background-color', 'transparent');
+                $("nav a").css('color', '#fff');
+                $(".active").css('color', '#3BB5FC');
+                $("nav span:hover").css('color', '#3BB5FC');
+                $("nav").css('box-shadow', 'none');
+            } else {
+                $("nav").css('background-color', '#fff');
+                $("nav a").css('color', '#3BB5FC');
+                $(".active").css('color', '#6d3dff');
+                $("nav span:hover").css('color', '#6d3dff');
+                $("nav").css('box-shadow', `
+                    0 2.8px 2.2px rgba(0, 0, 0, 0.014),
+                    0 6.7px 5.3px rgba(0, 0, 0, 0.018),
+                    0 1.5px 2px rgba(0, 0, 0, 0.02),
+                    0 2.3px 2px rgba(0, 0, 0, 0.022),
+                    0 3.8px 2px rgba(0, 0, 0, 0.026),
+                    0 4px 5px rgba(0, 0, 0, 0.05)`);
+            }
+        }
+        prev = curr;
+    }, 20)
 
+    $("nav").append(`
+    `);
 
     $.ajax({
         url: "footer.html",
@@ -28,19 +46,5 @@ function initialize() {
             $(".foot-wrap").append(data);
         }
     });
-
-    setInterval(() => {
-        if ($(window).scrollTop() == 0) {
-            $("body").addClass("top-flat");
-            $("body").removeClass("bot-flat");
-        } else if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-            $("body").removeClass("top-flat");
-            $("body").addClass("bot-flat");
-        } else {
-            $("body").removeClass("top-flat");
-            $("body").removeClass("bot-flat");
-            $("body").addClass("norm-flat");
-        }
-    }, 100);
 }
 $(initialize);

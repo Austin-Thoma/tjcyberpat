@@ -77,18 +77,7 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
     background-color: #a3a3a3;
-}
-
-body.norm-flat::-webkit-scrollbar-thumb{
     border-radius: 10px;
-}
-
-body.top-flat::-webkit-scrollbar-thumb{
-    border-radius: 0 0 10px 10px;
-}
-
-body.bot-flat::-webkit-scrollbar-thumb{
-    border-radius: 10px 10px 0 0;
 }
 
 body::-webkit-scrollbar-thumb:hover {
@@ -120,4 +109,89 @@ img {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0;
+}
+
+nav {
+    height: 7vh;
+    overflow: hidden;
+    font-size: 2vh;
+    transition: 0.3s;
+    width: 100%;
+    position: relative;
+    font-weight: 100;
+    font-family: 'Metropolis';
+}
+
+nav .left {
+    position: absolute;
+    left: 10%;
+    margin: auto;
+    line-height: 7vh;
+}
+
+nav .right {
+    position: absolute;
+    right: 10%;
+    margin: auto;
+    line-height: 7vh;
+}
+
+nav a {
+    color: #fff;
+}
+
+nav img {
+    height: 5vh;
+    margin-bottom: 1vh;
+    cursor: pointer;
+    z-index: 3;
+    transition: 0.3s;
+}
+
+nav .active {
+    color: #3BB5FC;
+}
+
+nav span {
+    padding-right: 2vh;
+    padding-left: 2vh;
+    font-size: 2vh;
+    transition: 0.3s;
+}
+
+nav .left span{
+    padding-left: 1vh;
+}
+
+nav span:hover {
+    color: #3BB5FC !important;
+}
+
+/*Footer*/
+footer {
+    background-color: #2C363F;
+    color: #fff;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+
+footer div {
+    width: 100%;
+    text-align: center;
+    font-size: 1.9vh;
+    font-family: 'Metropolis';
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+footer i {
+    color: #fff;
+    font-size: 2.8vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    transition: 0.3s;
+}
+
+footer i:hover{
+    color: #3BB5FC;
 }
