@@ -15,13 +15,10 @@ function initialize() {
             if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > 1170) {
                 $("nav").css('background-color', 'transparent');
                 $("nav a").css('color', '#fff');
-                $(".active").css('color', '#3BB5FC');
                 $("nav span:hover").css('color', '#3BB5FC');
                 $("nav").css('box-shadow', 'none');
             } else {
-                $("nav").css('background-color', '#fff');
-                $("nav a").css('color', '#3BB5FC');
-                $(".active").css('color', '#6d3dff');
+                $("nav").css('background-color', '#2C363Fdd');
                 $("nav span:hover").css('color', '#6d3dff');
                 $("nav").css('box-shadow', `
                     0 2.8px 2.2px rgba(0, 0, 0, 0.014),

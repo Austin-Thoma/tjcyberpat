@@ -112,7 +112,7 @@ img {
 }
 
 nav {
-    height: 7vh;
+    height: 5vh;
     overflow: hidden;
     font-size: 2vh;
     transition: 0.3s;
@@ -141,8 +141,7 @@ nav a {
 }
 
 nav img {
-    height: 5vh;
-    margin-bottom: 1vh;
+    height: 4vh;
     cursor: pointer;
     z-index: 3;
     transition: 0.3s;
@@ -155,7 +154,7 @@ nav .active {
 nav span {
     padding-right: 2vh;
     padding-left: 2vh;
-    font-size: 2vh;
+    font-size: 1.7vh;
     transition: 0.3s;
 }
 
