@@ -122,17 +122,14 @@ nav {
 }
 
 nav .left {
-    position: absolute;
-    left: 12%;
-    margin: auto;
-    line-height: 7vh;
+    margin-left: auto;
+    line-height: 0vh;
 }
 
 nav .right {
-    position: absolute;
-    right: 12%;
-    margin: auto;
-    line-height: 7vh;
+    margin-right: auto;
+    margin-left: 3vh;
+    line-height: 0vh;
 }
 
 nav a {
@@ -140,7 +137,7 @@ nav a {
 }
 
 nav img {
-    height: 4vh;
+    height: 3vh;
     cursor: pointer;
     z-index: 3;
     transition: 0.3s;
@@ -151,13 +148,13 @@ nav .active {
 }
 
 nav span {
-    padding-right: 2vh;
-    padding-left: 2vh;
+    padding-right: 4vh;
+    padding-left: 4vh;
     font-size: 1.7vh;
     transition: 0.3s;
 }
 
-nav .left span{
+nav .left span {
     padding-left: 1vh;
 }
 
@@ -171,12 +168,12 @@ nav span:hover {
     top: 0;
     left: 0;
     width: 100%;
-    height: 7vh;
+    height: 5.25vh;
     z-index: 2;
 }
 
 #nav-icon {
-    width: 54h;
+    width: 3.5vh;
     height: 5.25vh;
     position: absolute;
     -webkit-transform: rotate(0deg);
@@ -188,14 +185,15 @@ nav span:hover {
     transition: .5s ease-in-out;
     cursor: pointer;
     right: 10%;
-    top: 1vh;
+    top: 1.4vh;
 }
 
 #nav-icon span {
     display: block;
     position: absolute;
-    height: 0.2vh;
+    height: 0.1vh;
     width: 100%;
+    padding: 0vh;
     background: #3BB5FC;
     opacity: 1;
     left: 0;
@@ -215,11 +213,11 @@ nav span:hover {
 
 #nav-icon span:nth-child(2),
 #nav-icon span:nth-child(3) {
-    top: 1.2vh;
+    top: 1vh;
 }
 
 #nav-icon span:nth-child(4) {
-    top: 2.4vh;
+    top: 2vh;
 }
 
 #nav-icon.open span:nth-child(1) {
@@ -273,7 +271,7 @@ footer i {
     transition: 0.3s;
 }
 
-footer i:hover{
+footer i:hover {
     color: #3BB5FC;
 }
 
@@ -282,7 +280,7 @@ nav .wrap-icon {
     display: none;
 }
 
-@media only screen and (max-width: 1170px) {
+@media only screen and (max-width: 1100px) {
 
     nav .left,
     nav .right {
@@ -307,6 +305,7 @@ nav .wrap-icon {
         transition: .25s ease-in-out;
         transform: translateY(calc(-100% - 10vh));
         z-index: 1;
+        padding-bottom: 2vh;
         box-shadow:
             0 2.8px 2.2px rgba(0, 0, 0, 0.014),
             0 6.7px 5.3px rgba(0, 0, 0, 0.018),
@@ -325,7 +324,7 @@ nav .wrap-icon {
         padding-top: 1.5vh;
         padding-bottom: 1.5vh;
         padding-left: 2vh;
-        font-size: 2vh;
+        font-size: 2.2vh;
         transition: 0.3s;
     }
 }

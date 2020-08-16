@@ -1,7 +1,7 @@
 /*b1*/
 #particles-js {
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     background-color: #2C363F;
     overflow: hidden;
 }
@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -19,6 +19,7 @@
     justify-content: center;
     flex-flow: wrap;
     align-content: center;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
 }
 
 .b1 .title {
@@ -28,12 +29,13 @@
     font-family: "Roboto";
     font-weight: 100;
     width: 100%;
+    margin-top: 5.5vh;
 }
 
 .b1 .desc {
     font-size: 3vh;
     color: #fff;
     width: 60%;
-    margin-bottom: 12vh;
-
+    margin-bottom: 20vh;
+    text-align: center;
 }
