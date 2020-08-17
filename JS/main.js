@@ -12,18 +12,10 @@ function initialize() {
     setInterval(function () {
         curr = $(window).scrollTop() + $(window).width();
         if (curr != prev) {
-            if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > 1100) {
+            if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > $(window).height()) {
                 $("nav").css('background-color', 'transparent');
-                $("nav").css('box-shadow', 'none');
             } else {
-                $("nav").css('background-color', 'rgba(0, 0, 0, 0.9)');
-                $("nav").css('box-shadow', `
-                    0 2.8px 2.2px rgba(0, 0, 0, 0.014),
-                    0 6.7px 5.3px rgba(0, 0, 0, 0.018),
-                    0 1.5px 2px rgba(0, 0, 0, 0.02),
-                    0 2.3px 2px rgba(0, 0, 0, 0.022),
-                    0 3.8px 2px rgba(0, 0, 0, 0.026),
-                    0 4px 5px rgba(0, 0, 0, 0.05)`);
+                $("nav").css('background-color', 'rgba(0, 0, 0, 0.85)');
             }
         }
         prev = curr;
