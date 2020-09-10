@@ -121,6 +121,8 @@ nav {
     position: relative;
     font-weight: 100;
     font-family: 'Metropolis';
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 nav .left {

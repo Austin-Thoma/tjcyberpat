@@ -15,7 +15,7 @@ function initialize() {
             if ($(window).scrollTop() == 0 && !isMobile && $(window).width() > $(window).height()) {
                 $("nav").css('background-color', 'transparent');
             } else {
-                $("nav").css('background-color', 'rgba(0, 0, 0, 0.85)');
+                $("nav").css('background-color', 'rgba(0, 0, 0, 0.80)');
             }
         }
         prev = curr;
