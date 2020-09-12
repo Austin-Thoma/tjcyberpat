@@ -86,8 +86,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 p {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .desc {
@@ -114,26 +114,24 @@ img {
 
 nav {
     height: 5.25vh;
-    overflow: hidden;
     font-size: 2vh;
-    transition: 0.3s;
     width: 100%;
     position: relative;
     font-weight: 100;
     font-family: 'Metropolis';
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
 }
 
 nav .left {
     margin-left: auto;
     line-height: 0vh;
+    z-index: 3;
 }
 
 nav .right {
     margin-right: auto;
     margin-left: 3vh;
     line-height: 0vh;
+    z-index: 3;
 }
 
 nav a {
@@ -174,6 +172,8 @@ nav span:hover {
     width: 100%;
     height: 5.25vh;
     z-index: 2;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
 }
 
 #nav-icon {
@@ -275,12 +275,28 @@ footer i {
     transition: 0.3s;
 }
 
-footer i:hover {
+footer .mid >:nth-child(1) i:hover {
     color: #3BB5FC;
 }
 
+footer .mid >:nth-child(2) i:hover {
+    color: #7289da;
+}
+
+footer .mid >:nth-child(3) i:hover {
+    color: #FF0000;
+}
+
+footer .mid >:nth-child(4) i:hover {
+    color: #2EB67D;
+}
+
+footer .mid >:nth-child(5) i:hover {
+    color: #FF0000;
+}
+
 nav .collapse,
-nav .wrap-icon {
+nav #nav-icon {
     display: none;
 }
 
@@ -292,15 +308,15 @@ nav .wrap-icon {
     }
 
     nav .collapse,
-    nav .wrap-icon {
+    nav #nav-icon {
         display: unset !important;
     }
 
     nav .navbar-nav {
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(0, 0, 0, 1);
         width: 100%;
         position: fixed;
-        top: 5.25vh;
+        top: 0vh;
         left: 0;
         border-bottom-left-radius: 1vh;
         border-bottom-right-radius: 1vh;
@@ -309,14 +325,10 @@ nav .wrap-icon {
         transition: .25s ease-in-out;
         transform: translateY(calc(-100% - 10vh));
         z-index: 1;
-        padding-bottom: 2vh;
-        box-shadow:
-            0 2.8px 2.2px rgba(0, 0, 0, 0.014),
-            0 6.7px 5.3px rgba(0, 0, 0, 0.018),
-            0 1.5px 2px rgba(0, 0, 0, 0.02),
-            0 2.3px 2px rgba(0, 0, 0, 0.022),
-            0 3.8px 2px rgba(0, 0, 0, 0.026),
-            0 4px 5px rgba(0, 0, 0, 0.05);
+        padding-top: 5.25vh;
+        padding-bottom: 1vh;
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
     }
 
     nav .navbar-nav> :last-child {
