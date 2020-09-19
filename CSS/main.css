@@ -1,3 +1,4 @@
+/*Nunito*/
 @font-face {
     font-family: "Nunito";
     src: url("fonts/Nunito/Nunito-Light.ttf");
@@ -15,6 +16,13 @@
     font-weight: bold;
 }
 
+/*Lato*/
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/Lato-Light.ttf");
+    font-weight: 100;
+}
+
 @font-face {
     font-family: "Lato";
     src: url("fonts/Lato/Lato-Regular.ttf");
@@ -26,10 +34,11 @@
     font-weight: bold;
 }
 
+/*Roboto*/
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto/Roboto-Bold.ttf");
-    font-weight: bold;
+    src: url("fonts/Roboto/Roboto-Light.ttf");
+    font-weight: 100;
 }
 
 @font-face {
@@ -39,10 +48,11 @@
 
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto/Roboto-Light.ttf");
-    font-weight: 100;
+    src: url("fonts/Roboto/Roboto-Bold.ttf");
+    font-weight: bold;
 }
 
+/*Metropolis*/
 @font-face {
     font-family: "Metropolis";
     src: url("fonts/Metropolis/Metropolis-Light.otf");
@@ -70,6 +80,7 @@ body {
     padding: 0 !important;
     margin-block-start: 0 !important;
     margin-block-end: 0 !important;
+    font-weight: 100;
 }
 
 body::-webkit-scrollbar {
@@ -139,10 +150,14 @@ nav a {
 }
 
 nav img {
-    height: 3vh;
+    height: 5vh;
     cursor: pointer;
     z-index: 3;
     transition: 0.3s;
+    left: 0;
+    right: 0;
+    position: fixed;
+    margin: auto;
 }
 
 nav .active {
@@ -188,7 +203,7 @@ nav span:hover {
     -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     cursor: pointer;
-    right: 10%;
+    right: 5%;
     top: 1.4vh;
 }
 
@@ -276,7 +291,7 @@ footer i {
 }
 
 footer .mid >:nth-child(1) i:hover {
-    color: #3BB5FC;
+    color: #0fa3f8;
 }
 
 footer .mid >:nth-child(2) i:hover {
@@ -284,7 +299,7 @@ footer .mid >:nth-child(2) i:hover {
 }
 
 footer .mid >:nth-child(3) i:hover {
-    color: #FF0000;
+    color: #ca0000;
 }
 
 footer .mid >:nth-child(4) i:hover {
@@ -292,11 +307,12 @@ footer .mid >:nth-child(4) i:hover {
 }
 
 footer .mid >:nth-child(5) i:hover {
-    color: #FF0000;
+    color: #ca0000;
 }
 
 nav .collapse,
-nav #nav-icon {
+nav #nav-icon ,
+nav img {
     display: none;
 }
 
@@ -308,7 +324,8 @@ nav #nav-icon {
     }
 
     nav .collapse,
-    nav #nav-icon {
+    nav #nav-icon,
+    nav img {
         display: unset !important;
     }
 

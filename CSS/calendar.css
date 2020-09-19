@@ -1,0 +1,189 @@
+.fc-scroller::-webkit-scrollbar {
+    width: 0px;
+}
+
+#particles-js {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+}
+
+.wrap {
+    width: 90%;
+    height: 90vh;
+    background-color: transparent;
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-radius: 0.75vh;
+}
+
+#calendar {
+    width: 90%;
+    margin: auto;
+    padding-top: 2vh;
+    font-family: "Lato" !important;
+}
+
+/*General*/
+.fc-button,
+.fc-button-group {
+    vertical-align: unset !important;
+}
+
+#calendar .fc-right button {
+    height: 4vh !important;
+    line-height: 1vh !important;
+    font-size: 1.6vh !important;
+}
+
+.change-view {
+    outline: none;
+    border: 0;
+    background-color: #3BB5FC;
+    color: #fff;
+    font-size: 1.6vh;
+    line-height: 1vh;
+    height: 4vh;
+    border-radius: 0.25em;
+    width: 8vh;
+}
+
+.fc-button-group {
+    transform: translateY(-1px);
+}
+
+.fc-today-button {
+    background-color: #3BB5FC !important;
+    border: 0px transparent solid !important;
+}
+
+.fc-today-button:disabled {
+    background-color: #888 !important;
+    border: 0px transparent solid !important;
+}
+
+.fc-prev-button,
+.fc-next-button {
+    background-color: #3BB5FC !important;
+    border: 0px transparent solid !important;
+}
+
+/*List View*/
+.fc-list-item {
+    cursor: pointer;
+}
+
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-popover .fc-header {
+    background: transparent !important;
+}
+
+.fc-list-heading-alt,
+.fc-list-heading-main {
+    color: #fff !important;
+}
+
+.fc-list-item-title,
+.fc-list-item-marker,
+.fc-list-item-time {
+    color: #fff !important;
+}
+
+.fc-list-item.fc-allow-mouse-resize:hover  > :nth-child(1){
+    border-top-left-radius: .75vh !important;
+    border-bottom-left-radius: .75vh !important;
+}
+
+.fc-list-item.fc-allow-mouse-resize:hover  > :nth-child(3){
+    border-top-right-radius: .75vh !important;
+    border-bottom-right-radius: .75vh !important;
+}
+
+.fc-list-item.fc-allow-mouse-resize:hover > :nth-child(-n + 3) {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.fc-list-empty {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: .75vh;
+    color: #fff !important;
+}
+
+/*Month Day Grid*/
+.fc-unthemed .fc-content,
+.fc-unthemed .fc-divider,
+.fc-unthemed .fc-list-heading td,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-row,
+.fc-unthemed tbody,
+.fc-unthemed td,
+.fc-unthemed th,
+.fc-unthemed thead {
+    border-color: transparent !important;
+}
+
+.fc-unthemed td.fc-today {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: .75vh;
+}
+
+.fc-toolbar h2 {
+    font-size: 3vh !important;
+    color: #fff;
+}
+
+.fc-day-header {
+    color: #fff;
+}
+
+.fc-day-number {
+    color: #fff;
+    float: none !important;
+    margin: 0 !important;
+}
+
+.fc-day-top {
+    text-align: center;
+}
+
+.fc-day {
+    height: 10vh !important;
+}
+
+.fc-day-number {
+    margin-right: 1vh;
+}
+
+.fc-title {
+    color: #fff !important;
+    padding-left: 0.5vh;
+    font-size: 1.5vh;
+}
+
+.fc-event {
+    line-height: 2.3vh !important;
+}
+
+.fc-event,
+.fc-event-dot {
+    border: 0px transparent solid !important;
+    cursor: pointer !important;
+}
+
+.foot-wrap {
+    position: relative;
+}
+
+.land-warning {
+    display: none;
+}
+
+/*Title*/
