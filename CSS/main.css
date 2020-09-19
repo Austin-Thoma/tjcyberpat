@@ -146,7 +146,7 @@ nav .right {
 }
 
 nav a {
-    color: #fff;
+    color: #fff !important;
 }
 
 nav img {
@@ -210,7 +210,7 @@ nav span:hover {
 #nav-icon span {
     display: block;
     position: absolute;
-    height: 1px;
+    height: 2px;
     width: 100%;
     padding: 0vh;
     background: #3BB5FC;
@@ -266,25 +266,30 @@ nav span:hover {
 }
 
 /*Footer*/
+.foot-wrap {
+    width: 100%;
+}
+
 footer {
     background-color: #2C363F;
     color: #fff;
-    padding-top: 1vh;
-    padding-bottom: 1vh;
+    padding-top: .5vh;
+    padding-bottom: .5vh;
+    width: 100%;
 }
 
 footer div {
     width: 100%;
     text-align: center;
-    font-size: 1.9vh;
+    font-size: 1.8vh;
     font-family: 'Metropolis';
-    margin-top: 0.5vh;
-    margin-bottom: 0.5vh;
+    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
 }
 
 footer i {
     color: #fff;
-    font-size: 2.8vh;
+    font-size: 2.2vh;
     margin-left: 1.2vh;
     margin-right: 1.2vh;
     transition: 0.3s;
