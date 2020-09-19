@@ -210,7 +210,7 @@
 
     //Button
     setInterval(function () {
-        if ($(".fc-right").children().length == 2 && !isMobile) {
+        if ($(".fc-right").children().length == 2 && !isMobile && aspectside) {
             var text = "";
             if ($("#calendar").attr("view") == "grid")
                 text = "List";
