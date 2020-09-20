@@ -69,7 +69,7 @@
 }
 
 .fc-today-button:disabled {
-    background-color: #888 !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
     border: 0px transparent solid !important;
 }
 
@@ -101,17 +101,17 @@
     color: #fff !important;
 }
 
-.fc-list-item.fc-allow-mouse-resize:hover  > :nth-child(1){
+.fc-list-item.fc-allow-mouse-resize:hover> :nth-child(1) {
     border-top-left-radius: .75vh !important;
     border-bottom-left-radius: .75vh !important;
 }
 
-.fc-list-item.fc-allow-mouse-resize:hover  > :nth-child(3){
+.fc-list-item.fc-allow-mouse-resize:hover> :nth-child(3) {
     border-top-right-radius: .75vh !important;
     border-bottom-right-radius: .75vh !important;
 }
 
-.fc-list-item.fc-allow-mouse-resize:hover > :nth-child(-n + 3) {
+.fc-list-item.fc-allow-mouse-resize:hover> :nth-child(-n + 3) {
     background: rgba(255, 255, 255, 0.2) !important;
 }
 
@@ -135,7 +135,7 @@
     border-color: transparent !important;
 }
 
-.fc-unthemed td.fc-today {
+.fc-day.fc-widget-content.fc-today {
     background: rgba(255, 255, 255, 0.2) !important;
     border-radius: .75vh;
 }

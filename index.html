@@ -15,6 +15,8 @@
     <script src="JS/constant/scroll.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/home.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
@@ -52,7 +54,7 @@
             </div>
         </div>
     </nav>
-    
+
     <div id="particles-js"></div>
     <div class="landing">
         <p class="title">TJ CyberPatriot</p>
@@ -60,24 +62,86 @@
     </div>
 
     <div class="info">
-        <p class="title">The Club</p>
+        <p class="title">TJ CP</p>
         <p class="desc">
-            CyberPatriot is a competition run by the Air Force Association and sponsored by Northrop Grumman: a leading
+            Thank you all so much for your interest in our club! Cybersecurity is currently a growing field and can use
+            so many bright minds to improve and be developed further. We hope that through this club, you get a taste of
+            what it’s like to learn and work with a little bit of it. CyberPatriot is a competition run by the Air Force
+            Association and sponsored by Northrop Grumman: a leading
             company in the development of technology and other fields. This competition is solely defense focused, there
             is no attacking/hacking that we do. ​We meet Wednesdays during 8th periods both
             A and B block.
         </p>
+        <p class="title">Previous Years</p>
+        <div class="slideshow">
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/event.jpg">
+                </div>
+                <p class="desc">Our first competition from 2019!</p>
+            </div>
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/teach.jpg">
+                </div>
+                <p class="desc">Lorem ipsum dolor set amit</p>
+            </div>
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/teach2.jpg">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/windows.jpg">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/windows.png">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="img-wrap">
+                    <img src="Pics/home/ubuntu.png">
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div style="height: 20vh; width:100%; background-color: #1bd41b;">
+    <div class="os">
+        <p class="title">Secure Operating Systems</p>
+        <div class="row">
+            <a href="">
+                <p class="label">Windows 10</p>
+                <img src="Pics/home/windows.png">
+                <p class="desc">Click here to learn more about Windows 10.</p>
+            </a>
+            <a href="">
+                <p class="label">Windows Server</p>
+                <img src="Pics/home/windows.png">
+                <p class="desc">Click here to learn more about Windows 10 Server.</p>
+            </a>
+            <a href="">
+                <p class="label">Ubuntu</p>
+                <img src="Pics/home/ubuntu.png">
+                <p class="desc">Click here to learn more about Ubuntu.</p>
+            </a>
+            <a href="">
+                <p class="label">Debian</p>
+                <img src="Pics/home/debian.png">
+                <p class="desc">Click here to learn more about Debian.</p>
+            </a>
+        </div>
     </div>
-    <div style="height: 30vh; width:100%; background-color: #fff;">
+
+    <div style="height: 30vh; width:100%; background-color: #1bd41b; position: relative;">
     </div>
-    <div style="height: 20vh; width:100%; background-color: #9c9c9c;">
+    <div style="height: 20vh; width:100%; background-color: #9c9c9c; position: relative;">
     </div>
-    <div style="height: 20vh; width:100%; background-color: #2C363F;">
+    <div style="height: 20vh; width:100%; background-color: #2C363F; position: relative;">
     </div>
-    <div style="height: 20vh; width:100%; background-color: #7B68EE;">
+    <div style="height: 20vh; width:100%; background-color: #7B68EE; position: relative;">
     </div>
 
     <div class="team">
@@ -89,8 +153,8 @@
                 </div>
                 <div class="label">
                     Ryan Kim <br>
-                    Co-President <br>
-                    Senior
+                    <span style="color: #1bd41b">Co-President<br></span>
+                    <span style="color: #7B68EE">Senior</span>
                 </div>
             </div>
             <div>
@@ -99,8 +163,8 @@
                 </div>
                 <div class="label">
                     Grace Cha <br>
-                    Co-President <br>
-                    Senior
+                    <span style="color: #1bd41b">Co-President <br></span>
+                    <span style="color: #7B68EE">Senior</span>
                 </div>
             </div>
             <div>
@@ -109,8 +173,8 @@
                 </div>
                 <div class="label">
                     Myles Bao <br>
-                    Sectretary <br>
-                    Junior
+                    <span style="color: #1bd41b">Sectretary <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -119,8 +183,8 @@
                 </div>
                 <div class="label">
                     Melissa Wu <br>
-                    Treasurer <br>
-                    Junior
+                    <span style="color: #1bd41b">Treasurer <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -129,8 +193,8 @@
                 </div>
                 <div class="label">
                     Athan Zhang <br>
-                    Publicist <br>
-                    Sophomore
+                    <span style="color: #1bd41b">Publicist <br></span>
+                    <span style="color: #7B68EE">Sophomore</span>
                 </div>
             </div>
             <div>
@@ -139,8 +203,8 @@
                 </div>
                 <div class="label">
                     Anika Karpurapu <br>
-                    Lecturer <br>
-                    Junior
+                    <span style="color: #1bd41b">Lecturer <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -149,8 +213,8 @@
                 </div>
                 <div class="label">
                     Raffu Khondaker <br>
-                    Lecturer <br>
-                    Junior
+                    <span style="color: #1bd41b">Lecturer <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -159,8 +223,8 @@
                 </div>
                 <div class="label">
                     Kevin Shan <br>
-                    Lecturer <br>
-                    Sophomore
+                    <span style="color: #1bd41b">Lecturer <br></span>
+                    <span style="color: #7B68EE">Sophomore</span>
                 </div>
             </div>
             <div>
@@ -169,8 +233,8 @@
                 </div>
                 <div class="label">
                     Darius Kianersi <br>
-                    Lecturer <br>
-                    Junior
+                    <span style="color: #1bd41b">Lecturer <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -179,8 +243,8 @@
                 </div>
                 <div class="label">
                     Irfan Nafi <br>
-                    Webmaster <br>
-                    Junior
+                    <span style="color: #1bd41b">Webmaster <br></span>
+                    <span style="color: #7B68EE">Junior</span>
                 </div>
             </div>
             <div>
@@ -189,7 +253,7 @@
                 </div>
                 <div class="label">
                     Mr. Tra <br>
-                    Sponsor
+                    <span style="color: #1bd41b">Sponsor <br></span>
                 </div>
             </div>
         </div>
@@ -204,6 +268,35 @@
 <script>
     particlesJS.load('particles-js', 'particles.json', function () {
         console.log('callback - particles.js config loaded');
+    });
+
+    $('.slideshow').slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        centerPadding: '0px',
+        slidesToShow: 4,
+        responsive: [{
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '0px',
+                    slidesToShow: 1
+                }
+            }
+        ]
     });
 </script>
 
