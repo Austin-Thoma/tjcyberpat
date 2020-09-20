@@ -105,8 +105,19 @@ p {
     font-family: 'Nunito';
 }
 
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-inline-start: 0px;
+}
+
 a {
     text-decoration: none !important;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #7B68EE;
 }
 
 img {
