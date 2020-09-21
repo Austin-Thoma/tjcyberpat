@@ -28,7 +28,7 @@
             <a href="lectures.html"><span class="active">Lectures</span></a>
             <a href="calendar.html"><span>Calendar</span></a>
             <a href="resources.html"><span>Resources</span></a>
-            <a href="shop.html"><span>Shop</span></a>
+            <!-- <a href="shop.html"><span>Shop</span></a> -->
         </div>
 
         <div class="wrap-icon">
@@ -44,7 +44,7 @@
                     <a href="lectures.html"><span class="active">Lectures</span></a>
                     <a href="calendar.html"><span>Calendar</span></a>
                     <a href="resources.html"><span>Resources</span></a>
-                    <a href="shop.html"><span>Shop</span></a>
+                    <!-- <a href="shop.html"><span>Shop</span></a> -->
                 </div>
             </div>
         </div>
@@ -54,6 +54,26 @@
 
     <div class="os">
         <p class="title">Windows 10</p>
+        <div class="switch-wrap">
+            <div class="switch" id = "slides">
+                <img src="Pics/lectures/slides.png">
+                <p>
+                    Slides
+                </p>
+            </div>
+            <div class="switch" id = "docs">
+                <img src="Pics/lectures/docs.png">
+                <p>
+                    Docs
+                </p>
+            </div>
+            <div class="switch" id = "youtube">
+                <img src="Pics/lectures/youtube.png">
+                <p>
+                    YouTube
+                </p>
+            </div>
+        </div>
         <div class="viewer" vis="off" id="windows10">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
@@ -66,6 +86,26 @@
 
     <div class="os">
         <p class="title">Windows 8.1</p>
+        <div class="switch-wrap">
+            <div class="switch" id = "slides">
+                <img src="Pics/lectures/slides.png">
+                <p>
+                    Slides
+                </p>
+            </div>
+            <div class="switch" id = "docs">
+                <img src="Pics/lectures/docs.png">
+                <p>
+                    Docs
+                </p>
+            </div>
+            <div class="switch" id = "youtube">
+                <img src="Pics/lectures/youtube.png">
+                <p>
+                    YouTube
+                </p>
+            </div>
+        </div>
         <div class="viewer" vis="off" id="windows81">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
@@ -78,6 +118,26 @@
 
     <div class="os">
         <p class="title">Ubuntu</p>
+        <div class="switch-wrap">
+            <div class="switch" id = "slides">
+                <img src="Pics/lectures/slides.png">
+                <p>
+                    Slides
+                </p>
+            </div>
+            <div class="switch" id = "docs">
+                <img src="Pics/lectures/docs.png">
+                <p>
+                    Docs
+                </p>
+            </div>
+            <div class="switch" id = "youtube">
+                <img src="Pics/lectures/youtube.png">
+                <p>
+                    YouTube
+                </p>
+            </div>
+        </div>
         <div class="viewer" vis="off" id="ubuntu">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
@@ -90,6 +150,26 @@
 
     <div class="os">
         <p class="title">Debian</p>
+        <div class="switch-wrap">
+            <div class="switch" id = "slides">
+                <img src="Pics/lectures/slides.png">
+                <p>
+                    Slides
+                </p>
+            </div>
+            <div class="switch" id = "docs">
+                <img src="Pics/lectures/docs.png">
+                <p>
+                    Docs
+                </p>
+            </div>
+            <div class="switch" id = "youtube">
+                <img src="Pics/lectures/youtube.png">
+                <p>
+                    YouTube
+                </p>
+            </div>
+        </div>
         <div class="viewer" vis="off" id="debian">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
@@ -115,7 +195,7 @@
         isMobile = true;
     }
 
-    if (!isMobile) {
+    if (isMobile) {
         particlesJS.load('particles-js', 'particles.json', function () {
             console.log('callback - particles.js config loaded');
         });

@@ -40,7 +40,7 @@ function initialize() {
         var nump;
         var viewp = parseInt($(id + " .pdf-wrap").width());
         var currp = 0;
-    
+
         fetch('Lectures/' + fold + '/dir.txt')
             .then(response => response.text())
             .then(text => {
@@ -85,6 +85,30 @@ function initialize() {
             if (viewp < nump * sizep - $(window).width() * .03)
                 moveRightPdf();
         });
+
+        setTimeout(() => {
+            if (viewp <= $(id + " .pdf-wrap").width())
+                $(id + ' .fa-chevron-left.pa').css("opacity", "0");
+            else
+                $(id + ' .fa-chevron-left.pa').css("opacity", "1");
+
+            if (viewp >= nump * sizep - $(window).width() * .03)
+                $(id + ' .fa-chevron-right.pa').css("opacity", "0");
+            else
+                $(id + ' .fa-chevron-right.pa').css("opacity", "1");
+        }, 100);
+
+        $("body").on('click', function () {
+            if (viewp <= $(id + " .pdf-wrap").width())
+                $(id + ' .fa-chevron-left.pa').css("opacity", "0");
+            else
+                $(id + ' .fa-chevron-left.pa').css("opacity", "1");
+
+            if (viewp >= nump * sizep - $(window).width() * .03)
+                $(id + ' .fa-chevron-right.pa').css("opacity", "0");
+            else
+                $(id + ' .fa-chevron-right.pa').css("opacity", "1");
+        })
 
         $(window).on('resize', function () {
             sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
