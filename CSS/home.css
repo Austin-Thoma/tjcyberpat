@@ -139,13 +139,12 @@
 
 .info .slick-dots li {
     float: left;
-    margin: 0 2%;
+    margin: 0 1.5%;
 }
 
 .info .slick-dots button {
-    content: none !important;
     color: transparent;
-    font-size: 0px;
+    font-size: 0;
     line-height: 0;
     height: 1.5vh;
     width: 1.5vh;
@@ -245,9 +244,10 @@
 }
 
 .competition .row > div {
-    width: 35%;
+    width: 34%;
     min-width: 35vh;
-    margin: 2vh 2%;
+    max-width: 60vh;
+    margin: 2vh 2.5%;
     height: auto;
     border-radius: 0.75vh;
 }
@@ -269,6 +269,15 @@
     font-size: 1.9vh;
     padding-left: 2vh;
     margin-top: 1vh;
+}
+
+.competition hr {
+    width: 73%;
+    margin: auto;
+    height: 1px;
+    background-color: #bbb;
+    margin-top: 5vh;
+    margin-bottom: -4vh;
 }
 
 /*team*/

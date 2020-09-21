@@ -1,0 +1,105 @@
+body {
+    background-color: #000;
+    padding-top: 2vh !important;
+}
+
+/*Title*/
+p.title {
+    text-align: center;
+    font-size: 5vh;
+    font-family: 'Nunito';
+    font-weight: 100;
+    color: #fff;
+    margin-top: 4vh;
+    margin-bottom: 2vh;
+}
+
+/*PDF*/
+.viewer {
+    width: 75%;
+    max-width: 200vh;
+    height: 28vh;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+    border-radius: 1.5vh;
+    transition: 0.3s;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-wrap {
+    transition: 0.3s;
+    width: calc(100% - 13vh);
+    overflow: hidden;
+    display: block;
+    margin: auto;
+}
+
+.pdf {
+    height: 22vh;
+    min-width: 25vh;
+    max-width: 40vh;
+    width: 20%;
+    background-color: #fff;
+    border-radius: 1.5vh;
+    margin-top: 1.5vh;
+    margin-right: 3%;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.pdf img {
+    width: 100%;
+}
+
+.pdf-move {
+    transition: 0.3s;
+    position: relative;
+    height: 38vh;
+}
+
+.pdf .label {
+    font-size: 2vh;
+    color: #000;
+    position: absolute;
+    top: 24vh;
+    text-align: center;
+    min-width: 28vh;
+    width: 20%;
+    max-width: 45vh;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.fa-chevron-left.pa {
+    font-size: 3vh !important;
+    padding-top: 18vh;
+    height: 38vh;
+    cursor: pointer;
+    color: #3D348B;
+    transition: 0.3s;
+    z-index: 9;
+    transform: translateX(2.5vh)
+}
+
+.fa-chevron-right.pa {
+    font-size: 3vh !important;
+    padding-top: 18vh;
+    height: 38vh;
+    cursor: pointer;
+    color: #3D348B;
+    transition: 0.3s;
+    z-index: 9;
+    transform: translateX(-2.5vh)
+}
+
+.foot-wrap {
+    margin-top: 5vh;
+}

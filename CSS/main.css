@@ -96,6 +96,11 @@ body::-webkit-scrollbar-thumb:hover {
     background: #2C363F;
 }
 
+hr {
+    margin: 0;
+    border-top: 0;
+}
+
 p {
     margin-top: 0;
     margin-bottom: 0;
@@ -105,7 +110,9 @@ p {
     font-family: 'Nunito';
 }
 
-dl, ol, ul {
+dl,
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 0;
     padding-inline-start: 0px;
@@ -307,28 +314,28 @@ footer i {
     transition: 0.3s;
 }
 
-footer .mid >:nth-child(1) i:hover {
+footer .mid>:nth-child(1) i:hover {
     color: #0fa3f8;
 }
 
-footer .mid >:nth-child(2) i:hover {
+footer .mid>:nth-child(2) i:hover {
     color: #7289da;
 }
 
-footer .mid >:nth-child(3) i:hover {
+footer .mid>:nth-child(3) i:hover {
     color: #ca0000;
 }
 
-footer .mid >:nth-child(4) i:hover {
+footer .mid>:nth-child(4) i:hover {
     color: #2EB67D;
 }
 
-footer .mid >:nth-child(5) i:hover {
+footer .mid>:nth-child(5) i:hover {
     color: #ca0000;
 }
 
 nav .collapse,
-nav #nav-icon ,
+nav #nav-icon,
 nav img {
     display: none;
 }
