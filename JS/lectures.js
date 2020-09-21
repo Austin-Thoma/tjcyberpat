@@ -30,39 +30,85 @@ function initialize() {
         }, 250));
     });
 
-    pdfviewer("#windows10", "Windows10");
-    pdfviewer("#windows81", "Windows81");
-    pdfviewer("#ubuntu", "Ubuntu");
-    pdfviewer("#debian", "Debian");
+    pdfviewer("#windows10", "Windows10", 0);
+    pdfviewer("#windows81", "Windows81", 1);
+    pdfviewer("#ubuntu", "Ubuntu", 2);
+    pdfviewer("#debian", "Debian", 3);
 
-    function pdfviewer(id, fold) {
+    function pdfviewer(id, fold, index) {
         var sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
         var nump;
         var viewp = parseInt($(id + " .pdf-wrap").width());
         var currp = 0;
+        var slides = [];
+        var docs = [];
+        var youtube = [];
 
-        fetch('Lectures/' + fold + '/dir.txt')
-            .then(response => response.text())
-            .then(text => {
-                text = text.split("\n");
-                nump = 0;
-                $(id + " .pdf-move").html("");
-                viewp = parseInt($(id + " .pdf-wrap").width());
-                currp = 0;
-                $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
-                var append = '';
-                for (i = 0; i < text.length; i++) {
-                    if (text[i].split("/")[0] == fold) {
-                        var name = text[i].split("/")[1].split(".pdf")[0];
-                        dir = 'Lectures/' + text[i];
-                        append += '<a href="' + dir + '" target="_blank"><div class="pdf"><img src="';
-                        append += dir.replace(/.pdf/g, '.png') + '"><p class="label">' + name.replace(/_/g, ' ');
-                        append += '</p></div></a>';
-                        nump += 1;
-                    }
+        $.ajax({
+            url: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
+            type: "get",
+            async: false,
+            success: function (data) {
+                var arr = data.sheets[index].data[0].rowData;
+                for (i = 1; i < arr.length; i++) {
+                    if (arr[i].values[0].formattedValue != null)
+                        slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
+                    if (arr[i].values[2].formattedValue != null)
+                        docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
+                    if (arr[i].values[4].formattedValue != null)
+                        youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
                 }
-                $(id + " .pdf-move").append(append);
-            })
+                update(0);
+            }
+        });
+
+        function update(view) {
+            $(id + " .pdf-move").html("");
+            viewp = parseInt($(id + " .pdf-wrap").width());
+            currp = 0;
+            $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
+            var append = '';
+            var arr;
+
+            $(id + " .switch").removeClass("active");
+            if (view == 0) {
+                arr = slides;
+                nump = arr.length;
+                $(id + " #slides").addClass("active");
+            }
+            if (view == 1) {
+                arr = docs;
+                nump = arr.length;
+                $(id + " #docs").addClass("active");
+            }
+            if (view == 2) {
+                arr = youtube;
+                nump = arr.length;
+                $(id + " #youtube").addClass("active");
+            }
+
+            for (i = 0; i < nump; i++) {
+                var pic = youtube[i][1].split("v=")[1].split("&")[0]
+                pic = "https://img.youtube.com/vi/" + pic + "/default.jpg";
+                append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><img src="';
+                append += pic + '"><p class="label">' + arr[i][0];
+                append += '</p></div></a>';
+            }
+
+            $(id + " .pdf-move").append(append);
+        }
+
+        $(id + ' #slides').click(function () {
+            update(0);
+        });
+
+        $(id + ' #docs').click(function () {
+            update(1);
+        });
+
+        $(id + ' #youtube').click(function () {
+            update(2);
+        });
 
         function moveLeftPdf() {
             currp += sizep;
@@ -86,7 +132,7 @@ function initialize() {
                 moveRightPdf();
         });
 
-        setTimeout(() => {
+        setInterval(() => {
             if (viewp <= $(id + " .pdf-wrap").width())
                 $(id + ' .fa-chevron-left.pa').css("opacity", "0");
             else
@@ -96,19 +142,7 @@ function initialize() {
                 $(id + ' .fa-chevron-right.pa').css("opacity", "0");
             else
                 $(id + ' .fa-chevron-right.pa').css("opacity", "1");
-        }, 100);
-
-        $("body").on('click', function () {
-            if (viewp <= $(id + " .pdf-wrap").width())
-                $(id + ' .fa-chevron-left.pa').css("opacity", "0");
-            else
-                $(id + ' .fa-chevron-left.pa').css("opacity", "1");
-
-            if (viewp >= nump * sizep - $(window).width() * .03)
-                $(id + ' .fa-chevron-right.pa').css("opacity", "0");
-            else
-                $(id + ' .fa-chevron-right.pa').css("opacity", "1");
-        })
+        }, 200);
 
         $(window).on('resize', function () {
             sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);

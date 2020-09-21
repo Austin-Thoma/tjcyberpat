@@ -52,7 +52,7 @@
 
     <div id="particles-js"></div>
 
-    <div class="os">
+    <div class="os" id="windows10">
         <p class="title">Windows 10</p>
         <div class="switch-wrap">
             <div class="switch" id = "slides">
@@ -74,7 +74,7 @@
                 </p>
             </div>
         </div>
-        <div class="viewer" vis="off" id="windows10">
+        <div class="viewer" vis="off">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
                 <div class="pdf-move">
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <div class="os">
+    <div class="os" id="windows81">
         <p class="title">Windows 8.1</p>
         <div class="switch-wrap">
             <div class="switch" id = "slides">
@@ -106,7 +106,7 @@
                 </p>
             </div>
         </div>
-        <div class="viewer" vis="off" id="windows81">
+        <div class="viewer" vis="off">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
                 <div class="pdf-move">
@@ -116,7 +116,7 @@
         </div>
     </div>
 
-    <div class="os">
+    <div class="os" id="ubuntu">
         <p class="title">Ubuntu</p>
         <div class="switch-wrap">
             <div class="switch" id = "slides">
@@ -138,7 +138,7 @@
                 </p>
             </div>
         </div>
-        <div class="viewer" vis="off" id="ubuntu">
+        <div class="viewer" vis="off">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
                 <div class="pdf-move">
@@ -148,7 +148,7 @@
         </div>
     </div>
 
-    <div class="os">
+    <div class="os" id="debian">
         <p class="title">Debian</p>
         <div class="switch-wrap">
             <div class="switch" id = "slides">
@@ -170,7 +170,7 @@
                 </p>
             </div>
         </div>
-        <div class="viewer" vis="off" id="debian">
+        <div class="viewer" vis="off">
             <i class="far fa-chevron-left pa"></i>
             <div class="pdf-wrap">
                 <div class="pdf-move">
@@ -195,8 +195,8 @@
         isMobile = true;
     }
 
-    if (isMobile) {
-        particlesJS.load('particles-js', 'particles.json', function () {
+    if (!isMobile) {
+        particlesJS.load('particles-js', 'lectures.json', function () {
             console.log('callback - particles.js config loaded');
         });
     }
