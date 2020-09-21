@@ -61,7 +61,6 @@ function initialize() {
                         nump += 1;
                     }
                 }
-                console.log(fold, append)
                 $(id + " .pdf-move").append(append);
             })
 
