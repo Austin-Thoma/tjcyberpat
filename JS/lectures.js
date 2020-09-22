@@ -87,11 +87,22 @@ function initialize() {
                 $(id + " #youtube").addClass("active");
             }
 
-            for (i = 0; i < nump; i++) {
-                var pic = youtube[i][1].split("v=")[1].split("&")[0]
-                pic = "https://img.youtube.com/vi/" + pic + "/default.jpg";
-                append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><img src="';
-                append += pic + '"><p class="label">' + arr[i][0];
+            for (i = nump - 1; i > -1; i--) {
+                var pic;
+                if (view == 0) {
+                    pic = slides[i][1].split("/d/")[1].split("/")[0]
+                    pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
+                }
+                if (view == 1) {
+                    pic = docs[i][1].split("/d/")[1].split("/")[0]
+                    pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
+                }
+                if (view == 2) {
+                    pic = youtube[i][1].split("v=")[1].split("&")[0]
+                    pic = "https://img.youtube.com/vi/" + pic + "/mqdefault.jpg";
+                }
+                append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap"><img src="';
+                append += pic + '"></div><p class="label">' + arr[i][0];
                 append += '</p></div></a>';
             }
 
