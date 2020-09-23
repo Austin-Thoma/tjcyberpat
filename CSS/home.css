@@ -10,6 +10,10 @@
     z-index: -1;
 }
 
+#particles-js img {
+    display: none;
+}
+
 /*landing*/
 .landing {
     position: absolute;
@@ -85,6 +89,11 @@
     display: inline-block;
 }
 
+.info .slick-track {
+    height: 40vh;
+    overflow: hidden;
+}
+
 .info .slide {
     display: inline-block;
     width: 25%;
@@ -135,6 +144,8 @@
     display: flex;
     justify-content: center;
     margin-top: 0.5vh;
+    position: absolute;
+    top: 40vh;
 }
 
 .info .slick-dots li {
