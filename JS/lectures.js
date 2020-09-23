@@ -69,21 +69,25 @@ function initialize() {
             $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
             var append = '';
             var arr;
+            var pick;
 
             $(id + " .switch").removeClass("active");
             if (view == 0) {
                 arr = slides;
                 nump = arr.length;
+                pick = "slides";
                 $(id + " #slides").addClass("active");
             }
             if (view == 1) {
                 arr = docs;
                 nump = arr.length;
+                pick = "docs";
                 $(id + " #docs").addClass("active");
             }
             if (view == 2) {
                 arr = youtube;
                 nump = arr.length;
+                pick = "youtube";
                 $(id + " #youtube").addClass("active");
             }
 
@@ -101,7 +105,7 @@ function initialize() {
                     pic = youtube[i][1].split("v=")[1].split("&")[0]
                     pic = "https://img.youtube.com/vi/" + pic + "/mqdefault.jpg";
                 }
-                append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap"><img src="';
+                append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
                 append += pic + '"></div><p class="label">' + arr[i][0];
                 append += '</p></div></a>';
             }

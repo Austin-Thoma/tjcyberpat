@@ -31,7 +31,7 @@ p.title {
     font-weight: 100;
     color: #fff;
     margin-top: 5vh;
-    padding-top: 1vh;
+    padding-top: .5vh;
     position: relative;
 }
 
@@ -127,7 +127,18 @@ div.switch img {
 .pdf img {
     margin: auto;
     display: block;
+}
+
+.pdf .slides img {
+    height: 100%;
+}
+
+.pdf .docs img {
     width: 100%;
+}
+
+.pdf .youtube img {
+    height: 100%;
 }
 
 .pdf .label {

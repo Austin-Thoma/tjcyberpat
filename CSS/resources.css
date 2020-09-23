@@ -1,0 +1,57 @@
+body {
+    padding-top: 6vh !important;
+    background-color: #000;
+}
+
+/*Resource*/
+.resource {
+    width: 80%;
+    margin: auto;
+}
+
+.resource .title {
+    text-align: center;
+    font-size: 5vh;
+    font-family: 'Metropolis';
+    font-weight: 100;
+    color: #3BB5FC;
+    margin-bottom: 2vh;
+}
+
+.resource .row {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.resource .row>a {
+    width: 26%;
+    min-width: 40vh;
+    max-width: 70vh;
+    margin: 0vh 1.5% 4vh 1.5%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 0.75vh;
+    display: inline-block;
+}
+
+.resource .img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top-left-radius: 0.75vh;
+    border-top-right-radius: 0.75vh;
+    overflow: hidden;
+}
+
+.resource img {
+    width: 100%;
+    border-top-left-radius: 0.75vh;
+    border-top-right-radius: 0.75vh;
+}
+
+.resource .desc {
+    text-align: center;
+    font-size: 1.7vh;
+    padding: 1vh 1%;
+}

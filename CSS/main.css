@@ -172,6 +172,7 @@ nav img {
     cursor: pointer;
     z-index: 3;
     transition: 0.3s;
+    top: .125vh;
     left: 0;
     right: 0;
     position: fixed;
