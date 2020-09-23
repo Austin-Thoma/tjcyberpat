@@ -87,6 +87,14 @@
         });
     }
 
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("../Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("../Pics/land.png")');
+        }
+    }
+
     var calendarEl = document.getElementById('calendar');
 
     var monthconvert = {

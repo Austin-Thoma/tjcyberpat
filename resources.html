@@ -212,6 +212,14 @@
             'min-width: 30vh': 1,
         }
     });
+    
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("../Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("../Pics/land.png")');
+        }
+    }
 </script>
 
 </html>

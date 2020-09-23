@@ -16,6 +16,8 @@
     top: 0;
     left: 0;
     z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .wrap {
@@ -31,7 +33,6 @@
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-radius: 0.75vh;
-    background-color: rgb(117, 117, 117);
 }
 
 #calendar {

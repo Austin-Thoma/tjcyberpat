@@ -200,6 +200,14 @@
             console.log('callback - particles.js config loaded');
         });
     }
+    
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("../Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("../Pics/land.png")');
+        }
+    }
 </script>
 
 </html>
