@@ -23,12 +23,9 @@ body {
     flex-wrap: wrap;
 }
 
-.resource .row>a {
-    width: 26%;
+.resource .grid>a {
     min-width: 40vh;
     max-width: 70vh;
-    margin: 0vh 1.5% 4vh 1.5%;
-    height: auto;
     background-color: #fff;
     border-radius: 0.75vh;
     display: inline-block;
@@ -52,6 +49,41 @@ body {
 
 .resource .desc {
     text-align: center;
-    font-size: 1.7vh;
-    padding: 1vh 1%;
+    font-size: 1.5vh;
+    padding: 1vh 3%;
+}
+
+.grid {
+    background: #EEE;
+    width: auto;
+}
+
+.gutter-sizer {
+    width: 2vh;
+}
+
+.grid-item,
+.grid-sizer {
+    width: calc(100%/3 - 3vh);
+    min-width: 40vh;
+    max-width: 70vh;
+}
+
+.grid-item {
+    height: 120px;
+    float: left;
+    background: #D26;
+    margin-bottom: 2vh;
+}
+
+.grid-item--heighta {
+    height: auto;
+}
+
+.grid-item--height2 {
+    height: 200px;
+}
+
+.grid-item--height3 {
+    height: 260px;
 }

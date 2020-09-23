@@ -15,6 +15,8 @@
     <script src="JS/constant/scroll.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/resources.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
 </head>
 
 <body>
@@ -53,6 +55,106 @@
     <div class="resource">
         <p class="title">VM Practice Material</p>
 
+        <div class="grid">
+            <div class="gutter-sizer"></div>
+            <div class="grid-sizer"></div>
+
+            <a href="http://releases.ubuntu.com/" target="_blank" class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/ubuntu.png">
+                    </div>
+                    <p class="desc">
+                        Scroll down and you’ll have access to many different versions. The most used would be 14.04 and
+                        up.
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://support.ca-cyberhub.org/support/solutions/folders/33000201655" target="_blank"
+                class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/cyber.png">
+                    </div>
+                    <p class="desc">
+                        Plenty of great VMs that can be used for practice. Just download and open with vmware.
+                    </p>
+                </div>
+            </a>
+
+            <a href="http://releases.ubuntu.com/" target="_blank" class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/ubuntu.png">
+                    </div>
+                    <p class="desc">
+                        Scroll down and you’ll have access to many different versions. The most used would be 14.04 and
+                        up.
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://support.ca-cyberhub.org/support/solutions/folders/33000201655" target="_blank"
+                class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/cyber.png">
+                    </div>
+                    <p class="desc">
+                        Plenty of great VMs that can be used for practice. Just download and open with vmware.
+                    </p>
+                </div>
+            </a>
+            <a href="http://releases.ubuntu.com/" target="_blank" class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/ubuntu.png">
+                    </div>
+                    <p class="desc">
+                        Scroll down and you’ll have access to many different versions. The most used would be 14.04 and
+                        up.
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://support.ca-cyberhub.org/support/solutions/folders/33000201655" target="_blank"
+                class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/cyber.png">
+                    </div>
+                    <p class="desc">
+                        Plenty of great VMs that can be used for practice. Just download and open with vmware.
+                    </p>
+                </div>
+            </a>
+            <a href="http://releases.ubuntu.com/" target="_blank" class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/ubuntu.png">
+                    </div>
+                    <p class="desc">
+                        Scroll down and you’ll have access to many different versions. The most used would be 14.04 and
+                        up.
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://support.ca-cyberhub.org/support/solutions/folders/33000201655" target="_blank"
+                class="grid-item grid-item--heighta">
+                <div>
+                    <div class="img-wrap">
+                        <img src="Pics/resources/cyber.png">
+                    </div>
+                    <p class="desc">
+                        Plenty of great VMs that can be used for practice. Just download and open with vmware.
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 
         <div class="row">
             <a href="http://releases.ubuntu.com/" target="_blank">
                 <div>
@@ -124,12 +226,20 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div> -->
 
     <div class="foot-wrap">
 
     </div>
 </body>
 
+<script>
+    $('.grid').masonry({
+        columnWidth: '.grid-sizer',
+        gutter: '.gutter-sizer',
+        itemSelector: '.grid-item',
+        percentPosition: true
+    });
+</script>
 
 </html>
