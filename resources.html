@@ -100,12 +100,14 @@
             </div>
             <div>
                 <div>
-                    <img src="https://source.unsplash.com/SOZWHqeXcPQ">
-                </div>
-            </div>
-            <div>
-                <div>
-                    <img src="https://source.unsplash.com/bkdzvgBB7rQ">
+                    <a href="https://www.reddit.com/r/CyberPatriot" target="_blank">
+                        <div class="img-wrap">
+                            <img src="Pics/resources/reddit.png">
+                        </div>
+                        <p class="desc"> 
+                            r/CyberPatriot has a bunch of practice VMs and tips for competition.
+                        </p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -174,18 +176,17 @@
     }
 
     if (!isMobile) {
-        particlesJS.load('particles-js', 'calendar.json', function () {
+        particlesJS.load('particles-js', 'lectures.json', function () {
             console.log('callback - particles.js config loaded');
         });
     }
 
     FlexMasonry.init('.grid', {
         breakpointCols: {
-            'min-width: 1500px': 3,
-            'min-width: 1200px': 3,
-            'min-width: 992px': 2,
-            'min-width: 768px': 2,
-            'min-width: 576px': 1,
+            'min-width: 160vh': 3,
+            'min-width: 140vh': 2,
+            'min-width: 100vh': 2,
+            'min-width: 30vh': 1,
         }
     });
 </script>
