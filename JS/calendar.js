@@ -14,10 +14,18 @@ function initialize() {
 
     var css = `
     body {
-        background-color: rgb(0, 0, 0);
+        overflow-x: scroll;
     }
-    
+
+    .wrap {
+        overflow-x: scroll;
+    }
+
     @media only screen and (orientation:portrait) {
+        .fc-scroller { 
+            height: 60vh !important;   
+        }
+
         .wrap {
             overflow-x: scroll;
         }
@@ -31,9 +39,8 @@ function initialize() {
         }
 
         .wrap {
-            width: 150%;
             height: 70vh;
-            margin-bottom: 5vh;
+            margin-bottom: 15vh;
         }
 
         .fc-toolbar h2 {
@@ -49,13 +56,13 @@ function initialize() {
             height: 1vh;
             border-radius: 100%;
             margin-top: .7vh;
+            transform: translateY(.2vh);
         }
     }
     
     @media only screen and (orientation:landscape) {
         .wrap {
             width: 90%;
-            height: 125vh;
         }
     
         .fc-toolbar h2 {

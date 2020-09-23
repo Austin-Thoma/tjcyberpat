@@ -140,7 +140,6 @@
             type: "get",
             async: false,
             success: function (data) {
-                console.log(data);
                 var arr = data.sheets[req].data[0].rowData;
                 num = arr.length;
 
@@ -222,7 +221,7 @@
             $("#calendar").attr("view", "grid");
         }
     })
-    
+
     setTimeout(() => {
         if (isMobile) {
             calendar.changeView('listMonth');

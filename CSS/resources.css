@@ -17,6 +17,7 @@ body {
 .resource {
     width: 70%;
     margin: auto;
+    overflow: hidden;
 }
 
 .resource .title {

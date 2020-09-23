@@ -166,5 +166,37 @@ function initialize() {
             $(id + " .pdf-move").css("transform", "translateX(0%)");
         });
     }
+
+    var css = `
+    .schedule,
+    .pdf-wrap {
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+    .fa-chevron-left.sa,
+    .fa-chevron-right.sa,
+    .fa-chevron-left.pa,
+    .fa-chevron-right.pa
+     {
+        display: none;
+    }
+
+    @media only screen and (orientation:portrait) {
+        .os {
+            width: 90%;
+        }
+        .pdf-wrap {
+            width: calc(100% - 4vh);
+        }
+    }
+
+    @media only screen and (orientation:landscape) {
+    }
+    `
+
+    if (isMobile) {
+        $("head").append('<style>' + css + '</style>');
+    }
 }
 $(initialize);
