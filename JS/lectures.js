@@ -5,6 +5,20 @@ function initialize() {
         isMobile = true;
     }
 
+    if (!isMobile) {
+        particlesJS.load('particles-js', 'lectures.json', function () {
+            console.log('callback - particles.js config loaded');
+        });
+    }
+    
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("Pics/land.png")');
+        }
+    }
+
     $(document).on('mouseenter', '.pdf', function (event) {
         var newwidth = Math.max($(this).children(".label").get(0).scrollWidth, $(window).width() * .2);
         var off = $(this).children(".label").get(0).offsetWidth;

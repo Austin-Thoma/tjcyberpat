@@ -16,6 +16,39 @@ function initialize() {
         }, 500);
     });
 
+    if (!isMobile)
+        particlesJS.load('particles-js', 'particles.json', function () {
+            console.log('callback - particles.js config loaded');
+        });
+
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("Pics/land.png")');
+        }
+    }
+
+    $(window).on('orientationchange', function () {
+        if (isMobile) {
+            if (Math.abs(window.orientation) != 90) {
+                $("#particles-js").css("background-image", 'url("Pics/port.png")');
+            } else {
+                $("#particles-js").css("background-image", 'url("Pics/land.png")');
+            }
+        }
+    });
+
+    $('.slideshow').slick({
+        dots: true,
+        infinite: true,
+        centerMode: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        centerPadding: '0px',
+        slidesToShow: 3
+    });
+
     var css = `
     @media only screen and (orientation:portrait) {
         .landing .title {

@@ -91,6 +91,10 @@
     overflow: hidden;
 }
 
+.info .slick-track:active {
+    cursor: grab;
+}
+
 .info .slide {
     display: inline-block;
     width: 25%;

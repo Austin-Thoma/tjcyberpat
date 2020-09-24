@@ -5,6 +5,20 @@ function initialize() {
         isMobile = true;
     }
 
+    if (!isMobile) {
+        particlesJS.load('particles-js', 'calendar.json', function () {
+            console.log('callback - particles.js config loaded');
+        });
+    }
+
+    if (isMobile) {
+        if (Math.abs(window.orientation) != 90) {
+            $("#particles-js").css("background-image", 'url("Pics/port.png")');
+        } else {
+            $("#particles-js").css("background-image", 'url("Pics/land.png")');
+        }
+    }
+
     setTimeout(() => {
         $(".fc-today-button").text("Today");
     }, 100);
