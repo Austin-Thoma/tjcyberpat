@@ -7,7 +7,6 @@ function initialize() {
 
     if (!isMobile) {
         particlesJS.load('particles-js', 'calendar.json', function () {
-            console.log('callback - particles.js config loaded');
         });
     }
 

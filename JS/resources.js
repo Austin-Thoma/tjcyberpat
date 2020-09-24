@@ -9,7 +9,6 @@ function initialize() {
 
     if (!isMobile) {
         particlesJS.load('particles-js', 'resources.json', function () {
-            console.log('callback - particles.js config loaded');
         });
     }
 

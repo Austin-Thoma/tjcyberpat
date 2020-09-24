@@ -7,7 +7,6 @@ function initialize() {
 
     if (!isMobile) {
         particlesJS.load('particles-js', 'lectures.json', function () {
-            console.log('callback - particles.js config loaded');
         });
     }
     
@@ -64,7 +63,6 @@ function initialize() {
             async: false,
             success: function (data) {
                 var arr = data.sheets[index].data[0].rowData;
-                console.log(arr);
                 for (i = 1; i < arr.length; i++) {
                     try {
                         if (arr[i].values[0].formattedValue != null)
