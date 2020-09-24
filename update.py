@@ -4,7 +4,7 @@ import glob
 import os
 
 result = []
-PATH = "/Users/nafi/Develop/GitHub/tjphysicsteam/"
+PATH = "/Users/nafi/Develop/GitHub/tjcp/"
 for x in os.walk(PATH):
     for y in glob.glob(os.path.join(x[0], '*.html')):
         if "old" not in y:
@@ -25,7 +25,7 @@ for name in result:
                 i = i.replace('"><', '?v=1"><')
             else:
                 num = int(re.search('v=(.*)">', i).group(1)) + 1
-                # i = re.sub('v=(.*)">', "v=" + str(num) + '">', i)
+                i = re.sub('v=(.*)">', "v=" + str(num) + '">', i)
         orig += i
 
     w = open(name, 'w')
