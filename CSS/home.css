@@ -330,10 +330,12 @@
 .team .img-wrap {
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .team img {
-    width: 70%;
+    width: 14vh;
+    height: 14vh;
     border-radius: 0.5vh;
 }
 
