@@ -30,8 +30,8 @@
     right: 0;
     margin: auto;
     margin-bottom: 13vh;
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     border-radius: 0.75vh;
 }
 

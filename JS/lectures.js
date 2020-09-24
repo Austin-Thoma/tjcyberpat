@@ -64,13 +64,23 @@ function initialize() {
             async: false,
             success: function (data) {
                 var arr = data.sheets[index].data[0].rowData;
+                console.log(arr);
                 for (i = 1; i < arr.length; i++) {
-                    if (arr[i].values[0].formattedValue != null)
-                        slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
-                    if (arr[i].values[2].formattedValue != null)
-                        docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
-                    if (arr[i].values[4].formattedValue != null)
-                        youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
+                    try {
+                        if (arr[i].values[0].formattedValue != null)
+                            slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
+                    } catch (error) {
+                    }
+                    try {
+                        if (arr[i].values[2].formattedValue != null)
+                            docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
+                    } catch (error) {
+                    }
+                    try {
+                        if (arr[i].values[4].formattedValue != null)
+                            youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
+                    } catch (error) {
+                    }
                 }
                 update(0);
             }
