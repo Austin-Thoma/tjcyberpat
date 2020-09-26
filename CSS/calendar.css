@@ -34,6 +34,7 @@
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-radius: 0.75vh;
+    z-index: 2;
 }
 
 #calendar {
@@ -41,6 +42,25 @@
     margin: auto;
     padding-top: 2vh;
     font-family: "Lato" !important;
+}
+
+div.desc {
+    position: fixed;
+    border-radius: 0.75vh;
+    padding: .8vh 1vh;
+    font-size: 1.5vh;
+    color: #fff;
+    font-family: 'Lato';
+    max-width: 25vh;
+    left: 50%;
+    top: 30vh;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, .4);
+    z-index: 100;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 /*General*/
@@ -198,5 +218,3 @@
 .land-warning {
     display: none;
 }
-
-/*Title*/

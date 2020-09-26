@@ -73,6 +73,9 @@
 
     <div id="particles-js"></div>
 
+    <div class="desc">
+    </div>
+
     <div class="wrap">
         <div id='calendar' view="grid"></div>
     </div>
@@ -133,14 +136,24 @@
         eventMouseEnter: function (info) {
             if (!isMobile) {
                 var desc = info.event.id.split(" __ ")[1];
-                console.log(desc)
+                if (desc != "")
+                    $("div.desc").css("opacity", 1);
+                $("div.desc").text(desc);
+                $("div.desc").css("left", (event.clientX) + "px");
+                if (event.clientY > $(window).height() * 0.5)
+                    $("div.desc").css("top", (event.clientY - ($("div.desc").height() + $(window).height() *
+                        0.03)) + "px")
+                else
+                    $("div.desc").css("top", (event.clientY + $(window).height() * 0.03) + "px")
+
+                console.log(desc, event.clientX, event.clientY)
             }
+        },
+        eventMouseLeave: function (info) {
+            if (!isMobile)
+                $("div.desc").css("opacity", 0);
         }
     });
-
-    function tooltip(text, x, y) {
-        
-    }
 
     getDoc(0, '#1bd41b');
     getDoc(1, '#3BB5FC');
