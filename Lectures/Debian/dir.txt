@@ -1,3 +1,0 @@
-Debian/Thermodynamics.pdf
-Debian/Electromagnetism.pdf
-Debian/Relativity.pdf
