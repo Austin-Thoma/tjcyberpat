@@ -23,7 +23,6 @@
 .wrap {
     width: 90%;
     max-width: 200vh;
-    /* height: 90vh; */
     background-color: transparent;
     position: relative;
     top: 7vh;
@@ -69,7 +68,7 @@ div.desc {
     vertical-align: unset !important;
 }
 
-#calendar .fc-right button {
+#calendar .fc-right button, #calendar .fc-left button {
     height: 4vh !important;
     line-height: 1vh !important;
     font-size: 1.6vh !important;
@@ -88,7 +87,7 @@ div.desc {
 }
 
 .fc-button-group {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .fc-today-button {
@@ -103,8 +102,20 @@ div.desc {
 
 .fc-prev-button,
 .fc-next-button {
+    height: 4vh;
     background-color: #3BB5FC !important;
     border: 0px transparent solid !important;
+}
+
+.fc-button-primary:not(:disabled).fc-button-active, .fc-button-primary:not(:disabled):active {
+    background-color: #3BB5FC !important;
+    border-color: transparent !important;
+}
+
+.fc-right .fc-button-primary {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border-color: transparent !important;
 }
 
 /*List View*/

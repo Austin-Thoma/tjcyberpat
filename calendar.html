@@ -8,13 +8,13 @@
     <link rel="icon" href="Icon/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/main.css?version=6">
-    <link rel="stylesheet" href="CSS/calendar.css?version=8">
+    <link rel="stylesheet" href="CSS/main.css?version=7">
+    <link rel="stylesheet" href="CSS/calendar.css?version=9">
     <link rel="stylesheet" href="CSS/fonts/fa/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="JS/constant/scroll.js"></script>
-    <script src="JS/main.js?v=6"></script>
-    <script src="JS/calendar.js?v=6"></script>
+    <script src="JS/main.js?v=7"></script>
+    <script src="JS/calendar.js?v=7"></script>
     <link href='JS/calendar/core/main.min.css' rel='stylesheet' />
     <script src='JS/calendar/core/main.min.js'></script>
     <link href='JS/calendar/daygrid/main.min.css' rel='stylesheet' />
@@ -121,39 +121,84 @@
     var initview = 'dayGridMonth';
     var aspectside = true;
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: ['list', 'dayGrid'],
-        defaultView: 'dayGridMonth',
-        eventOrder: 'color, start',
-        eventClick: function (info) {
-            if (!isMobile) {
-                var link = info.event.id.split(" __ ")[0];
-                var desc = info.event.id.split(" __ ")[1];
-                if (link != "")
-                    openInNewTab(link);
-            }
-        },
-        eventMouseEnter: function (info) {
-            if (!isMobile) {
-                var desc = info.event.id.split(" __ ")[1];
-                if (desc != "")
-                    $("div.desc").css("opacity", 1);
-                $("div.desc").text(desc);
-                $("div.desc").css("left", (event.clientX) + "px");
-                if (event.clientY > $(window).height() * 0.5)
-                    $("div.desc").css("top", (event.clientY - ($("div.desc").height() + $(window).height() *
-                        0.03)) + "px")
-                else
-                    $("div.desc").css("top", (event.clientY + $(window).height() * 0.03) + "px")
+    if (!isMobile)
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'listMonth,dayGridMonth'
+            },
+            plugins: ['list', 'dayGrid'],
+            eventOrder: 'color, start',
+            eventClick: function (info) {
+                if (!isMobile) {
+                    var link = info.event.id.split(" __ ")[0];
+                    var desc = info.event.id.split(" __ ")[1];
+                    if (link != "")
+                        openInNewTab(link);
+                }
+            },
+            eventMouseEnter: function (info) {
+                if (!isMobile) {
+                    var desc = info.event.id.split(" __ ")[1];
+                    if (desc != "")
+                        $("div.desc").css("opacity", 1);
+                    $("div.desc").text(desc);
+                    $("div.desc").css("left", (event.clientX) + "px");
+                    if (event.clientY > $(window).height() * 0.5)
+                        $("div.desc").css("top", (event.clientY - ($("div.desc").height() + $(window)
+                            .height() *
+                            0.03)) + "px")
+                    else
+                        $("div.desc").css("top", (event.clientY + $(window).height() * 0.03) + "px")
 
-                console.log(desc, event.clientX, event.clientY)
+                    console.log(desc, event.clientX, event.clientY)
+                }
+            },
+            eventMouseLeave: function (info) {
+                if (!isMobile)
+                    $("div.desc").css("opacity", 0);
             }
-        },
-        eventMouseLeave: function (info) {
-            if (!isMobile)
-                $("div.desc").css("opacity", 0);
-        }
-    });
+        });
+    else 
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            header: {
+                left: 'title',
+                center: '',
+                right: 'prev,next'
+            },
+            plugins: ['list', 'dayGrid'],
+            eventOrder: 'color, start',
+            eventClick: function (info) {
+                if (!isMobile) {
+                    var link = info.event.id.split(" __ ")[0];
+                    var desc = info.event.id.split(" __ ")[1];
+                    if (link != "")
+                        openInNewTab(link);
+                }
+            },
+            eventMouseEnter: function (info) {
+                if (!isMobile) {
+                    var desc = info.event.id.split(" __ ")[1];
+                    if (desc != "")
+                        $("div.desc").css("opacity", 1);
+                    $("div.desc").text(desc);
+                    $("div.desc").css("left", (event.clientX) + "px");
+                    if (event.clientY > $(window).height() * 0.5)
+                        $("div.desc").css("top", (event.clientY - ($("div.desc").height() + $(window)
+                            .height() *
+                            0.03)) + "px")
+                    else
+                        $("div.desc").css("top", (event.clientY + $(window).height() * 0.03) + "px")
+
+                    console.log(desc, event.clientX, event.clientY)
+                }
+            },
+            eventMouseLeave: function (info) {
+                if (!isMobile)
+                    $("div.desc").css("opacity", 0);
+            }
+        });
 
     getDoc(0, '#1bd41b');
     getDoc(1, '#3BB5FC');
@@ -227,26 +272,13 @@
 
     //Button
     setInterval(function () {
-        if ($(".fc-right").children().length == 2 && !isMobile && aspectside) {
-            var text = "";
-            if ($("#calendar").attr("view") == "grid")
-                text = "List";
-            else
-                text = "Grid";
-            $(".fc-right").append('<button class="change-view">' + text + '</button>');
+        if ($(".fc-today-button").text() == "today")
             $(".fc-today-button").text("Today");
-        }
+        if ($(".fc-right .fc-button-group > :first-child").text() == "list")
+            $(".fc-right .fc-button-group > :first-child").text("List");
+        if ($(".fc-right .fc-button-group > :last-child").text() == "month")
+            $(".fc-right .fc-button-group > :last-child").text("Month");
     }, 50)
-
-    $("body").on("click", ".change-view", function () {
-        if ($("#calendar").attr("view") == "grid") {
-            calendar.changeView('listMonth');
-            $("#calendar").attr("view", "list");
-        } else {
-            calendar.changeView('dayGridMonth');
-            $("#calendar").attr("view", "grid");
-        }
-    })
 
     //Auto change to list mode
     setTimeout(() => {
@@ -274,7 +306,6 @@
                     calendar.changeView('listMonth');
             } else {
                 aspectside = true;
-                calendar.changeView('dayGridMonth');
             }
         }
     });
