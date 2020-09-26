@@ -18,6 +18,7 @@ body {
 /*Resource*/
 .resource {
     width: 70%;
+    max-width: 200vh;
     margin: auto;
     overflow: hidden;
 }

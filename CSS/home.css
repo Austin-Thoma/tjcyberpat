@@ -197,6 +197,7 @@
 .os .row>a {
     width: 20%;
     min-width: 30vh;
+    max-width: 50vh;
     height: auto;
     margin: 0 2%;
     /* background-color: rgba(255, 255, 255, .2); */
@@ -253,6 +254,8 @@
 
 .competition .row {
     justify-content: center;
+    margin: auto !important;
+    max-width: 230vh;
 }
 
 .competition .row > div {
@@ -316,6 +319,8 @@
     padding-right: 10%;
     justify-content: center;
     font-weight: normal;
+    max-width: 250vh;
+    margin: auto !important;
 }
 
 .team .row>div {
