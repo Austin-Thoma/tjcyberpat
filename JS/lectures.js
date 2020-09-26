@@ -199,8 +199,7 @@ function initialize() {
     .fa-chevron-left.sa,
     .fa-chevron-right.sa,
     .fa-chevron-left.pa,
-    .fa-chevron-right.pa
-     {
+    .fa-chevron-right.pa {
         display: none;
     }
 
