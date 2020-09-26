@@ -247,27 +247,21 @@
         }
     })
 
+    //Auto change to list mode
     setTimeout(() => {
         if (isMobile) {
             calendar.changeView('listMonth');
+        } else {
+            if ($(window).height() / $(window).width() > 0.65) {
+                aspectside = false;
+                $(".wrap").css("transform", "translateX(0%)");
+                if ($("#calendar").attr("view") == "grid")
+                    calendar.changeView('listMonth');
+            } else {
+                aspectside = true;
+            }
         }
     }, 100);
-
-    //Auto Change to List Mode
-    if (!isMobile) {
-        calendar.setOption('height', $(window).height() * .85);
-        if ($(window).height() / $(window).width() > 0.65) {
-            aspectside = false;
-            $(".wrap").css("transform", "translateX(0%)");
-            $(".wrap").css("width", "85%");
-            setTimeout(() => {
-                if ($("#calendar").attr("view") == "grid")
-                    $(".change-view")[0].click();
-            }, 500);
-        } else {
-            aspectside = true;
-        }
-    }
 
     $(window).on('resize', function () {
         if (!isMobile) {
@@ -275,11 +269,11 @@
             if ($(window).height() / $(window).width() > 0.65) {
                 aspectside = false;
                 $(".wrap").css("transform", "translateX(0%)");
-                $(".wrap").css("width", "85%");
                 if ($("#calendar").attr("view") == "grid")
-                    $(".change-view")[0].click();
+                    calendar.changeView('listMonth');
             } else {
                 aspectside = true;
+                calendar.changeView('dayGridMonth');
             }
         }
     });
