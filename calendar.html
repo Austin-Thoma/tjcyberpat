@@ -124,17 +124,23 @@
         eventOrder: 'color, start',
         eventClick: function (info) {
             if (!isMobile) {
-                // alert('Event: ' + info.event.title);
-                $(".side .date").text(monthconvert[(info.event.start + " ").split(" ")[1]] + " " + (
-                    info.event.start + " ").split(" ")[2]);
-                var team;
                 var link = info.event.id.split(" __ ")[0];
                 var desc = info.event.id.split(" __ ")[1];
                 if (link != "")
                     openInNewTab(link);
             }
+        },
+        eventMouseEnter: function (info) {
+            if (!isMobile) {
+                var desc = info.event.id.split(" __ ")[1];
+                console.log(desc)
+            }
         }
     });
+
+    function tooltip(text, x, y) {
+        
+    }
 
     getDoc(0, '#1bd41b');
     getDoc(1, '#3BB5FC');
