@@ -32,6 +32,7 @@ function initialize() {
 
     .wrap {
         overflow-x: scroll;
+        height: 90vh;
     }
 
     @media only screen and (orientation:portrait) {
