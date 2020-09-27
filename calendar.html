@@ -285,6 +285,7 @@
         if (isMobile) {
             calendar.changeView('listMonth');
         } else {
+            calendar.setOption('height', $(window).height() * .85);
             if ($(window).height() / $(window).width() > 0.65) {
                 aspectside = false;
                 $(".wrap").css("transform", "translateX(0%)");
