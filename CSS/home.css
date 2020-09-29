@@ -91,10 +91,6 @@
     overflow: hidden;
 }
 
-.info .slick-track:active {
-    cursor: grab;
-}
-
 .info .slide {
     display: inline-block;
     width: 25%;
@@ -314,9 +310,7 @@
 }
 
 .team .row {
-    padding-top: 1vh;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 1vh 18% 0;
     justify-content: center;
     font-weight: normal;
     max-width: 250vh;

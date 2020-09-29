@@ -86,8 +86,8 @@ div.desc {
     width: 8vh;
 }
 
-.fc-button-group {
-    transform: translateY(-1px);
+.fc-left .fc-button-group {
+    transform: translateY(-2px);
 }
 
 .fc-today-button {

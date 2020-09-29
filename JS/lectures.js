@@ -43,12 +43,12 @@ function initialize() {
         }, 250));
     });
 
-    pdfviewer("#windows10", "Windows10", 0);
-    pdfviewer("#windows81", "Windows81", 1);
-    pdfviewer("#ubuntu", "Ubuntu", 2);
-    pdfviewer("#debian", "Debian", 3);
+    pdfviewer("#windows10", 0);
+    pdfviewer("#windows81", 1);
+    pdfviewer("#ubuntu", 2);
+    pdfviewer("#debian", 3);
 
-    function pdfviewer(id, fold, index) {
+    function pdfviewer(id, index) {
         var sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
         var nump;
         var viewp = parseInt($(id + " .pdf-wrap").width());

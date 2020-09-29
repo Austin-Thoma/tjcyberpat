@@ -8,13 +8,13 @@
     <link rel="icon" href="Icon/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/main.css?version=7">
-    <link rel="stylesheet" href="CSS/calendar.css?version=9">
+    <link rel="stylesheet" href="CSS/main.css?version=8">
+    <link rel="stylesheet" href="CSS/calendar.css?version=10">
     <link rel="stylesheet" href="CSS/fonts/fa/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="JS/constant/scroll.js"></script>
-    <script src="JS/main.js?v=7"></script>
-    <script src="JS/calendar.js?v=7"></script>
+    <script src="JS/main.js?v=8"></script>
+    <script src="JS/calendar.js?v=8"></script>
     <link href='JS/calendar/core/main.min.css' rel='stylesheet' />
     <script src='JS/calendar/core/main.min.js'></script>
     <link href='JS/calendar/daygrid/main.min.css' rel='stylesheet' />
@@ -227,8 +227,14 @@
                         de = de > 9 ? de : '0' + de;
                     } catch (err) {}
 
-                    if (date == null)
+                    if (date == null || end == null)
                         continue;
+
+                    if (desc == null)
+                        desc = ""
+
+                    if (link == null)
+                        link = ""
 
                     var month = date.split("/")[0];
                     month = month.length > 1 ? month : '0' + month;
@@ -246,12 +252,6 @@
 
                     var dateend = year + "-" + me + "-" + de;
                     end = new Date(dateend + 'T00:00:00');
-
-                    if (desc == null)
-                        desc = ""
-
-                    if (link == null)
-                        link = ""
 
                     calendar.addEvent({
                         title: title,
