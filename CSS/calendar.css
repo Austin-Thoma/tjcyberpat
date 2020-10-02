@@ -212,6 +212,11 @@ div.desc {
     font-size: 1.6vh;
 }
 
+a.fc-event .fc-content {
+    border-radius: 3px;
+    padding-right: 0.5vh;
+}
+
 .fc-event {
     line-height: 2.5vh !important;
 }
