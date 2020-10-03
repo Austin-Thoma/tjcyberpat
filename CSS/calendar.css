@@ -22,6 +22,7 @@
 
 .wrap {
     width: 90%;
+    min-height: 80vh;
     max-width: 200vh;
     background-color: transparent;
     position: relative;
@@ -224,7 +225,6 @@ a.fc-event .fc-content {
 .fc-event,
 .fc-event-dot {
     border: 0px transparent solid !important;
-    cursor: pointer !important;
 }
 
 .foot-wrap {
