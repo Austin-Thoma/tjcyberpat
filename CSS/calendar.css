@@ -60,7 +60,6 @@ div.desc {
     z-index: 100;
     display: inline-block;
     opacity: 0;
-    transition: opacity 0.3s;
 }
 
 /*General*/
@@ -120,10 +119,6 @@ div.desc {
 }
 
 /*List View*/
-.fc-list-item {
-    cursor: pointer;
-}
-
 .fc-unthemed .fc-divider,
 .fc-unthemed .fc-list-heading td,
 .fc-unthemed .fc-popover .fc-header {
