@@ -6,10 +6,9 @@ function initialize() {
     }
 
     if (!isMobile) {
-        particlesJS.load('particles-js', 'lectures.json', function () {
-        });
+        particlesJS.load('particles-js', 'lectures.json', function () {});
     }
-    
+
     if (isMobile) {
         if (Math.abs(window.orientation) != 90) {
             $("#particles-js").css("background-image", 'url("Pics/port.png")');
@@ -43,6 +42,17 @@ function initialize() {
         }, 250));
     });
 
+    var sheet;
+
+    $.ajax({
+        url: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
+        type: "get",
+        async: false,
+        success: function (data) {
+            sheet = data;
+        }
+    });
+
     pdfviewer("#windows10", 0);
     pdfviewer("#windows81", 1);
     pdfviewer("#ubuntu", 2);
@@ -57,32 +67,22 @@ function initialize() {
         var docs = [];
         var youtube = [];
 
-        $.ajax({
-            url: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
-            type: "get",
-            async: false,
-            success: function (data) {
-                var arr = data.sheets[index].data[0].rowData;
-                for (i = 1; i < arr.length; i++) {
-                    try {
-                        if (arr[i].values[0].formattedValue != null)
-                            slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
-                    } catch (error) {
-                    }
-                    try {
-                        if (arr[i].values[2].formattedValue != null)
-                            docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
-                    } catch (error) {
-                    }
-                    try {
-                        if (arr[i].values[4].formattedValue != null)
-                            youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
-                    } catch (error) {
-                    }
-                }
-                update(0);
-            }
-        });
+        var arr = sheet.sheets[index].data[0].rowData;
+        for (i = 1; i < arr.length; i++) {
+            try {
+                if (arr[i].values[0].formattedValue != null)
+                    slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
+            } catch (error) {}
+            try {
+                if (arr[i].values[2].formattedValue != null)
+                    docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
+            } catch (error) {}
+            try {
+                if (arr[i].values[4].formattedValue != null)
+                    youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
+            } catch (error) {}
+        }
+        update(0);
 
         function update(view) {
             $(id + " .pdf-move").html("");
