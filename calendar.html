@@ -8,13 +8,13 @@
     <link rel="icon" href="Icon/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/main.css?version=10">
-    <link rel="stylesheet" href="CSS/calendar.css?version=12">
+    <link rel="stylesheet" href="CSS/main.css?version=11">
+    <link rel="stylesheet" href="CSS/calendar.css?version=13">
     <link rel="stylesheet" href="CSS/fonts/fa/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="JS/constant/scroll.js"></script>
-    <script src="JS/main.js?v=10"></script>
-    <script src="JS/calendar.js?v=10"></script>
+    <script src="JS/main.js?v=11"></script>
+    <script src="JS/calendar.js?v=11"></script>
     <link href='JS/calendar/core/main.min.css' rel='stylesheet' />
     <script src='JS/calendar/core/main.min.js'></script>
     <link href='JS/calendar/daygrid/main.min.css' rel='stylesheet' />
@@ -167,6 +167,7 @@
             },
             plugins: ['list', 'dayGrid'],
             eventOrder: 'color, start',
+            defaultView: 'listMonth',
             eventClick: function (info) {
                 var link = info.event.id.split(" __ ")[0];
                 var desc = info.event.id.split(" __ ")[1];
@@ -259,9 +260,7 @@
 
     //Auto change to list mode
     setTimeout(() => {
-        if (isMobile) {
-            calendar.changeView('listMonth');
-        } else {
+        if (!isMobile) {
             calendar.setOption('height', $(window).height() * .85);
             if ($(window).height() / $(window).width() > 0.65) {
                 aspectside = false;
