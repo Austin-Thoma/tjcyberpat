@@ -136,6 +136,10 @@ div.desc {
     color: #fff !important;
 }
 
+.fc-list-item {
+    user-select: none;
+}
+
 .fc-list-item.fc-allow-mouse-resize:hover> :nth-child(1) {
     border-top-left-radius: .75vh !important;
     border-bottom-left-radius: .75vh !important;
@@ -211,6 +215,7 @@ div.desc {
 a.fc-event .fc-content {
     border-radius: 3px;
     padding-right: 0.5vh;
+    user-select: none;
 }
 
 .fc-event {

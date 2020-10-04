@@ -7,9 +7,7 @@ function initialize() {
 
     if (!isMobile) {
         particlesJS.load('particles-js', 'lectures.json', function () {});
-    }
-
-    if (isMobile) {
+    } else {
         if (Math.abs(window.orientation) != 90) {
             $("#particles-js").css("background-image", 'url("Pics/port.png")');
         } else {

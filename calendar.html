@@ -8,13 +8,13 @@
     <link rel="icon" href="Icon/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/main.css?version=16">
-    <link rel="stylesheet" href="CSS/calendar.css?version=18">
+    <link rel="stylesheet" href="CSS/main.css?version=18">
+    <link rel="stylesheet" href="CSS/calendar.css?version=20">
     <link rel="stylesheet" href="CSS/fonts/fa/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="JS/constant/scroll.js"></script>
-    <script src="JS/main.js?v=16"></script>
-    <script src="JS/calendar.js?v=16"></script>
+    <script src="JS/main.js?v=18"></script>
+    <script src="JS/calendar.js?v=18"></script>
     <link href='JS/calendar/core/main.min.css' rel='stylesheet' />
     <script src='JS/calendar/core/main.min.js'></script>
     <link href='JS/calendar/daygrid/main.min.css' rel='stylesheet' />
@@ -148,7 +148,7 @@
                 if (event.clientY > $(window).height() * 0.5)
                     $("div.desc").css("top", (event.clientY - ($("div.desc").height() + $(window)
                         .height() *
-                        0.03)) + "px")
+                        0.05)) + "px")
                 else
                     $("div.desc").css("top", (event.clientY + $(window).height() * 0.03) + "px")
             },
@@ -175,6 +175,23 @@
             }
         });
 
+    function getdate(date) {
+        var month = date.split("/")[0];
+        month = month.length > 1 ? month : '0' + month;
+
+        var day = date.split("/")[1];
+        day = day.length > 1 ? day : '0' + day;
+
+        var year = (new Date()).getFullYear();
+
+        if (parseInt(month) > 0 && parseInt(month) < 7)
+            year += 1;
+        console.log(year);
+        var dateStr = year + "-" + month + "-" + day;
+        date = new Date(dateStr + 'T00:00:00');
+        return date;
+    }
+
     getDoc(0, '#1bd41b');
     getDoc(1, '#3BB5FC');
     getDoc(2, '#7B68EE');
@@ -188,25 +205,21 @@
                 var arr = data.sheets[req].data[0].rowData;
 
                 for (i = 1; i < arr.length; i++) {
-                    var date = "";
+                    var start = "";
                     var title = "";
                     var desc = "";
                     var link = "";
                     var end = "";
 
                     try {
-                        date = arr[i].values[0].formattedValue;
+                        start = arr[i].values[0].formattedValue;
                         end = arr[i].values[1].formattedValue;
                         title = arr[i].values[2].formattedValue;
                         desc = arr[i].values[3].formattedValue;
                         link = arr[i].values[4].formattedValue;
-                        var me = end.split("/")[0];
-                        me = me.length > 1 ? me : '0' + me;
-                        var de = parseInt(end.split("/")[1]) + 1;
-                        de = de > 9 ? de : '0' + de;
                     } catch (err) {}
 
-                    if (date == null || end == null)
+                    if (start == null || end == null)
                         continue;
 
                     if (desc == null)
@@ -215,27 +228,13 @@
                     if (link == null)
                         link = ""
 
-                    var month = date.split("/")[0];
-                    month = month.length > 1 ? month : '0' + month;
-
-                    var day = date.split("/")[1];
-                    day = day.length > 1 ? day : '0' + day;
-
-                    var year = 2020;
-
-                    if (parseInt(month) > 0 && parseInt(month) < 7)
-                        year = 2021;
-
-                    var dateStr = year + "-" + month + "-" + day;
-                    var date = new Date(dateStr + 'T00:00:00');
-
-                    var dateend = year + "-" + me + "-" + de;
-                    end = new Date(dateend + 'T00:00:00');
-
+                    var temp = end.split("/");
+                    end = temp[0] + "/" + (parseInt(temp[1]) + 1);
+                    
                     calendar.addEvent({
                         title: title,
-                        start: date,
-                        end: end,
+                        start: getdate(start),
+                        end: getdate(end),
                         allDay: true,
                         backgroundColor: color,
                         id: link + " __ " + desc,

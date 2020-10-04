@@ -6,7 +6,7 @@ function initialize() {
     }
 
     if (!isMobile) {
-        particlesJS.load('particles-js', 'calendar.json', function () {});
+        // particlesJS.load('particles-js', 'calendar.json', function () {});
 
         $(document).on('mouseenter', 'a.fc-event', function () {
             $(this).children(".fc-content").css("display", "inline-block");
@@ -16,9 +16,7 @@ function initialize() {
             $(this).children(".fc-content").css("overflow", "hidden");
             $(this).children(".fc-content").css("display", "block");
         });
-    }
-
-    if (isMobile) {
+    } else {
         if (Math.abs(window.orientation) != 90) {
             $("#particles-js").css("background-image", 'url("Pics/port.png")');
         } else {
