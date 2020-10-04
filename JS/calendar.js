@@ -6,7 +6,7 @@ function initialize() {
     }
 
     if (!isMobile) {
-        // particlesJS.load('particles-js', 'calendar.json', function () {});
+        particlesJS.load('particles-js', 'calendar.json', function () {});
 
         $(document).on('mouseenter', 'a.fc-event', function () {
             $(this).children(".fc-content").css("display", "inline-block");

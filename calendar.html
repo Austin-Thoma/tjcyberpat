@@ -8,13 +8,13 @@
     <link rel="icon" href="Icon/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/main.css?version=18">
-    <link rel="stylesheet" href="CSS/calendar.css?version=20">
+    <link rel="stylesheet" href="CSS/main.css?version=19">
+    <link rel="stylesheet" href="CSS/calendar.css?version=21">
     <link rel="stylesheet" href="CSS/fonts/fa/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="JS/constant/scroll.js"></script>
-    <script src="JS/main.js?v=18"></script>
-    <script src="JS/calendar.js?v=18"></script>
+    <script src="JS/main.js?v=19"></script>
+    <script src="JS/calendar.js?v=20"></script>
     <link href='JS/calendar/core/main.min.css' rel='stylesheet' />
     <script src='JS/calendar/core/main.min.js'></script>
     <link href='JS/calendar/daygrid/main.min.css' rel='stylesheet' />
@@ -186,22 +186,22 @@
 
         if (parseInt(month) > 0 && parseInt(month) < 7)
             year += 1;
-            
+
         var dateStr = year + "-" + month + "-" + day;
         date = new Date(dateStr + 'T00:00:00');
         return date;
     }
 
-    getDoc(0, '#1bd41b');
-    getDoc(1, '#3BB5FC');
-    getDoc(2, '#7B68EE');
+    $.ajax({
+        url: "https://sheets.googleapis.com/v4/spreadsheets/1UYVpeGzXBm_d3PsF0eeVX7jYRMgR3Dt81CWIxa76smk/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
+        type: "get",
+        async: false,
+        success: function (data) {
+            getDoc(0, '#1bd41b');
+            getDoc(1, '#3BB5FC');
+            getDoc(2, '#7B68EE');
 
-    function getDoc(req, color) {
-        $.ajax({
-            url: "https://sheets.googleapis.com/v4/spreadsheets/1UYVpeGzXBm_d3PsF0eeVX7jYRMgR3Dt81CWIxa76smk/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
-            type: "get",
-            async: false,
-            success: function (data) {
+            function getDoc(req, color) {
                 var arr = data.sheets[req].data[0].rowData;
 
                 for (i = 1; i < arr.length; i++) {
@@ -230,7 +230,7 @@
 
                     var temp = end.split("/");
                     end = temp[0] + "/" + (parseInt(temp[1]) + 1);
-                    
+
                     calendar.addEvent({
                         title: title,
                         start: getdate(start),
@@ -241,8 +241,8 @@
                     });
                 }
             }
-        });
-    };
+        }
+    });
 
     calendar.render();
 
