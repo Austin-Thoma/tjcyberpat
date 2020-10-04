@@ -136,8 +136,13 @@ div.desc {
     color: #fff !important;
 }
 
+.fc-list-heading {
+    font-size: 1.8vh;
+}
+
 .fc-list-item {
     user-select: none;
+    font-size: 1.7vh;
 }
 
 .fc-list-item.fc-allow-mouse-resize:hover> :nth-child(1) {
