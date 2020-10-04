@@ -168,11 +168,11 @@ nav a {
 }
 
 nav img {
-    height: 5vh;
+    height: 4.5vh;
     cursor: pointer;
     z-index: 3;
     transition: 0.3s;
-    top: .125vh;
+    top: .375vh;
     left: 0;
     right: 0;
     position: fixed;
