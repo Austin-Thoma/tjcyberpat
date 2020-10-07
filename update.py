@@ -30,3 +30,14 @@ for name in result:
 
     w = open(name, 'w')
     w.write(orig)
+
+result = []
+PATH = "/Users/nafi/Develop/GitHub/tjcp/JS"
+for x in os.walk(PATH):
+    for y in glob.glob(os.path.join(x[0], '*.js')):
+        if "constant/" not in y and "calendar/" not in y:
+            result.append(y)
+
+for i in result:
+    name = i.strip(".js") + ".min.js"
+    os.system("terser %s --compress --mangle --output %s" % (i, name))

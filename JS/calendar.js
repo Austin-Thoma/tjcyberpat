@@ -31,16 +31,16 @@ function initialize() {
 
     .wrap {
         overflow-x: scroll;
-        height: 90vh;
     }
 
     @media only screen and (orientation:portrait) {
         .fc-scroller { 
-            height: 60vh !important;   
+            height: 70vh !important;   
         }
 
         .wrap {
             overflow-x: scroll;
+            height: 90vh;
         }
 
         .fc-content {
