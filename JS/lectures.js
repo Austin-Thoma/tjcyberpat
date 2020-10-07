@@ -43,11 +43,12 @@ function initialize() {
     $.ajax({
         url: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
         type: "get",
+        async: false,
         success: function (data) {
-            pdfviewer("#windows10", 0);
-            pdfviewer("#windows81", 1);
-            pdfviewer("#ubuntu", 2);
-            pdfviewer("#debian", 3);
+            pdfviewer("#windows10", [0, 1]);
+            // pdfviewer("#windows81", [1]);
+            pdfviewer("#ubuntu", [2, 3]);
+            // pdfviewer("#debian", [3]);
 
             function pdfviewer(id, index) {
                 var sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
@@ -58,20 +59,23 @@ function initialize() {
                 var docs = [];
                 var youtube = [];
 
-                var arr = data.sheets[index].data[0].rowData;
-                for (i = 1; i < arr.length; i++) {
-                    try {
-                        if (arr[i].values[0].formattedValue != null)
-                            slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
-                    } catch (error) {}
-                    try {
-                        if (arr[i].values[2].formattedValue != null)
-                            docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
-                    } catch (error) {}
-                    try {
-                        if (arr[i].values[4].formattedValue != null)
-                            youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
-                    } catch (error) {}
+                for (k = 0; k < index.length; k++){
+                    var arr = data.sheets[index[k]].data[0].rowData;
+                    for (i = 1; i < arr.length; i++) {
+                        try {
+                            if (arr[i].values[0].formattedValue != null)
+                                slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
+                        } catch (error) {}
+                        try {
+                            if (arr[i].values[2].formattedValue != null)
+                                docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
+                        } catch (error) {}
+                        try {
+                            if (arr[i].values[4].formattedValue != null)
+                                youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
+                        } catch (error) {}
+                    }
+                    
                 }
                 update(0);
 

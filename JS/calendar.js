@@ -65,11 +65,10 @@ function initialize() {
         }
 
         .fc-event-dot {
-            width: 1vh;
-            height: 1vh;
+            width: .8vh;
+            height: .8vh;
             border-radius: 100%;
             margin-top: .7vh;
-            transform: translateY(.2vh);
         }
     }
     
@@ -87,10 +86,10 @@ function initialize() {
         }
 
         .fc-event-dot {
-            width: 1.2vh;
-            height: 1.2vh;
+            width: 1.5vh;
+            height: 1.5vh;
             border-radius: 100%;
-            transform: translateY(-1vh);
+            transform: translateY(1.2vh);
         }
     }
     `
