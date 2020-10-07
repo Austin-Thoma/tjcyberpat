@@ -35,7 +35,7 @@ result = []
 PATH = "/Users/nafi/Develop/GitHub/tjcp/JS"
 for x in os.walk(PATH):
     for y in glob.glob(os.path.join(x[0], '*.js')):
-        if "constant/" not in y and "calendar/" not in y:
+        if "constant/" not in y and "calendar/" not in y and "min." not in y:
             result.append(y)
 
 for i in result:
