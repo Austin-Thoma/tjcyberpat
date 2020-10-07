@@ -1,72 +1,72 @@
 /*Nunito*/
 @font-face {
     font-family: "Nunito";
-    src: url("fonts/Nunito/Nunito-Light.ttf");
+    src: url("fonts/Nunito/nunito-light-webfont.woff2") format('woff2');
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Nunito";
-    src: url("fonts/Nunito/Nunito-Regular.ttf");
+    src: url("fonts/Nunito/nunito-regular-webfont.woff2") format('woff2');
 }
 
 @font-face {
     font-family: "Nunito";
-    src: url("fonts/Nunito/Nunito-Bold.ttf");
+    src: url("fonts/Nunito/nunito-bold-webfont.woff2") format('woff2');
     font-weight: bold;
 }
 
 /*Lato*/
 @font-face {
     font-family: "Lato";
-    src: url("fonts/Lato/Lato-Light.ttf");
+    src: url("fonts/Lato/lato-light-webfont.woff2") format('woff2');
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Lato";
-    src: url("fonts/Lato/Lato-Regular.ttf");
+    src: url("fonts/Lato/lato-regular-webfont.woff2") format('woff2');
 }
 
 @font-face {
     font-family: "Lato";
-    src: url("fonts/Lato/Lato-Bold.ttf");
+    src: url("fonts/Lato/lato-bold-webfont.woff2") format('woff2');
     font-weight: bold;
 }
 
 /*Roboto*/
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto/Roboto-Light.ttf");
+    src: url("fonts/Roboto/roboto-light-webfont.woff2") format('woff2');
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto/Roboto-Regular.ttf");
+    src: url("fonts/Roboto/roboto-regular-webfont.woff2") format('woff2');
 }
 
 @font-face {
     font-family: "Roboto";
-    src: url("fonts/Roboto/Roboto-Bold.ttf");
+    src: url("fonts/Roboto/roboto-bold-webfont.woff2") format('woff2');
     font-weight: bold;
 }
 
 /*Metropolis*/
 @font-face {
     font-family: "Metropolis";
-    src: url("fonts/Metropolis/Metropolis-Light.otf");
+    src: url("fonts/Metropolis/metropolis-light-webfont.woff2") format('woff2');
     font-weight: 100;
 }
 
 @font-face {
     font-family: "Metropolis";
-    src: url("fonts/Metropolis/Metropolis-Regular.otf");
+    src: url("fonts/Metropolis/metropolis-regular-webfont.woff2") format('woff2');
 }
 
 @font-face {
     font-family: "Metropolis";
-    src: url("fonts/Metropolis/Metropolis-Bold.otf");
+    src: url("fonts/Metropolis/metropolis-bold-webfont.woff2") format('woff2');
     font-weight: bold;
 }
 
