@@ -39,6 +39,5 @@ for x in os.walk(PATH):
             result.append(y)
 
 for i in result:
-    name = i.strip(".js") + ".min.js"
-    print(i, name)
-    # os.system("terser %s --compress --mangle --output %s" % (i, name))
+    name = i.replace(".js", "") + ".min.js"
+    os.system("terser %s --compress --mangle --output %s" % (i, name))
