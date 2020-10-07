@@ -211,6 +211,9 @@ function initialize() {
     }
 
     @media only screen and (orientation:landscape) {
+        .pdf-wrap {
+            width: calc(100% - 6vh);
+        }
     }
     `
 
