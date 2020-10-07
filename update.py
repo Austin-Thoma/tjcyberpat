@@ -7,7 +7,7 @@ result = []
 PATH = "/Users/nafi/Develop/GitHub/tjcp/"
 for x in os.walk(PATH):
     for y in glob.glob(os.path.join(x[0], '*.html')):
-        if "old" not in y:
+        if "fonts" not in y:
             result.append(y)
 
 for name in result:
