@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Nunito";
+    src: url("fonts/Nunito/nunito-light-webfont.woff2") format('woff2');
+    font-weight: 100;
+} 
+
 body {
     padding-top: 6vh !important;
     background-color: #000;
