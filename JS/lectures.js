@@ -50,6 +50,12 @@ function initialize() {
             pdfviewer("#ubuntu", [2, 3]);
             // pdfviewer("#debian", [3]);
 
+            function youtube_parser(url) {
+                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+                var match = url.match(regExp);
+                return (match && match[7].length == 11) ? match[7] : false;
+            }
+
             function pdfviewer(id, index) {
                 var sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
                 var nump;
@@ -111,15 +117,15 @@ function initialize() {
                     for (i = nump - 1; i > -1; i--) {
                         var pic;
                         if (view == 0) {
-                            pic = slides[i][1].split("/d/")[1].split("/")[0]
+                            pic = slides[i][1].split("/d/")[1].split("/")[0];
                             pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                         }
                         if (view == 1) {
-                            pic = docs[i][1].split("/d/")[1].split("/")[0]
+                            pic = docs[i][1].split("/d/")[1].split("/")[0];
                             pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                         }
                         if (view == 2) {
-                            pic = youtube[i][1].split("v=")[1].split("&")[0]
+                            pic = youtube_parser(youtube[i][1]);
                             pic = "https://img.youtube.com/vi/" + pic + "/maxresdefault.jpg";
                         }
                         append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
