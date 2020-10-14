@@ -69,15 +69,15 @@ function initialize() {
                     var arr = data.sheets[index[k]].data[0].rowData;
                     for (i = 1; i < arr.length; i++) {
                         try {
-                            if (arr[i].values[0].formattedValue != null)
+                            if (arr[i].values[0].formattedValue != null && arr[i].values[1].formattedValue != null)
                                 slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
                         } catch (error) {}
                         try {
-                            if (arr[i].values[2].formattedValue != null)
+                            if (arr[i].values[2].formattedValue != null && arr[i].values[3].formattedValue != null)
                                 docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
                         } catch (error) {}
                         try {
-                            if (arr[i].values[4].formattedValue != null)
+                            if (arr[i].values[4].formattedValue != null && arr[i].values[5].formattedValue != null)
                                 youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
                         } catch (error) {}
                     }
