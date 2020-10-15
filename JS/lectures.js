@@ -15,8 +15,10 @@ function initialize() {
         }
     }
 
-    $(document).on('mouseenter', '.pdf', function (event) {
+    var oldwidth;
+    $(document).on('mouseenter', '.pdf', function () {
         var newwidth = Math.max($(this).children(".label").get(0).scrollWidth, $(window).width() * .2);
+        oldwidth = $(this).width();
         var off = $(this).children(".label").get(0).offsetWidth;
         var scroll = $(this).children(".label").get(0).scrollWidth;
         if (off < scroll) {
@@ -24,11 +26,9 @@ function initialize() {
             $(this).children(".label").css("width", newwidth + "px");
         }
     }).on('mouseleave', '.pdf', function () {
-        $(this).css("width", "20%");
+        $(this).css("width", oldwidth);
         $(this).css("margin-left", "0vh");
-        $(this).css("margin-right", "3%");
-        $(this).children(".label").css("width", "20%");
-        $(this).children(".label").css("margin-left", "0px");
+        $(this).children(".label").css("width", oldwidth);
     });
 
     var disable_click = false;
@@ -57,7 +57,7 @@ function initialize() {
             }
 
             function pdfviewer(id, index) {
-                var sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
+                var sizep = $(".viewer .pdf-move a").width();;
                 var nump;
                 var viewp = parseInt($(id + " .pdf-wrap").width());
                 var currp = 0;
@@ -65,7 +65,7 @@ function initialize() {
                 var docs = [];
                 var youtube = [];
 
-                for (k = 0; k < index.length; k++){
+                for (k = 0; k < index.length; k++) {
                     var arr = data.sheets[index[k]].data[0].rowData;
                     for (i = 1; i < arr.length; i++) {
                         try {
@@ -81,7 +81,7 @@ function initialize() {
                                 youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
                         } catch (error) {}
                     }
-                    
+
                 }
                 update(0);
 
@@ -131,6 +131,7 @@ function initialize() {
                         append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
                         append += pic + '"></div><p class="label">' + arr[i][0];
                         append += '</p></div></a>';
+                        sizep = $(".viewer .pdf-move a").width();;
                     }
 
                     $(id + " .pdf-move").append(append);
@@ -183,7 +184,7 @@ function initialize() {
                 }, 200);
 
                 $(window).on('resize', function () {
-                    sizep = parseInt(Math.min(Math.max($(window).height() * .28, $(id + " .pdf-wrap").width() * .2), $(window).height() * .45) + $(window).width() * .03);
+                    sizep = $(".viewer .pdf-move a").width();
                     viewp = parseInt($(id + " .pdf-wrap").width());
                     currp = 0;
                     $(id + " .pdf-move").css("transform", "translateX(0%)");

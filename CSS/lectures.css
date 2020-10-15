@@ -112,9 +112,9 @@ div.switch img {
 
 .pdf {
     height: 20vh;
-    min-width: 28vh;
-    max-width: 45vh;
-    width: 20%;
+    min-width: 30vh;
+    max-width: 36vh;
+    width: 22%;
     background-color: #000;
     border-radius: .75vh;
     margin-top: 1.5vh;
@@ -156,9 +156,9 @@ div.switch img {
     position: absolute;
     top: 23vh;
     text-align: center;
-    min-width: 28vh;
-    width: 20%;
-    max-width: 45vh;
+    min-width: 30vh;
+    max-width: 36vh;
+    width: 22%;
     overflow: hidden;
     z-index: 1;
     transition: 0.3s;
