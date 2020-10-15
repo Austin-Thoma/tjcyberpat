@@ -56,17 +56,18 @@ function initialize() {
                 return (match && match[7].length == 11) ? match[7] : false;
             }
 
-            function pdfviewer(id, index) {
-                var sizep = $(".viewer .pdf-move a").width();;
+            function pdfviewer(id, sheetindex) {
+                var sizep = $(".viewer .pdf-move a").width();
                 var nump;
-                var viewp = parseInt($(id + " .pdf-wrap").width());
+                var index = 0;
                 var currp = 0;
+                var viewp = parseInt($(id + " .pdf-wrap").width());
                 var slides = [];
                 var docs = [];
                 var youtube = [];
 
-                for (k = 0; k < index.length; k++) {
-                    var arr = data.sheets[index[k]].data[0].rowData;
+                for (k = 0; k < sheetindex.length; k++) {
+                    var arr = data.sheets[sheetindex[k]].data[0].rowData;
                     for (i = 1; i < arr.length; i++) {
                         try {
                             if (arr[i].values[0].formattedValue != null && arr[i].values[1].formattedValue != null)
@@ -81,33 +82,34 @@ function initialize() {
                                 youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
                         } catch (error) {}
                     }
-
                 }
+
                 update(0);
 
-                function update(view) {
-                    $(id + " .pdf-move").html("");
+                function update(option) {
                     viewp = parseInt($(id + " .pdf-wrap").width());
                     currp = 0;
+                    index = 0;
+                    $(id + " .pdf-move").html("");
                     $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
                     var append = '';
                     var arr;
                     var pick;
 
                     $(id + " .switch").removeClass("active");
-                    if (view == 0) {
+                    if (option == 0) {
                         arr = slides;
                         nump = arr.length;
                         pick = "slides";
                         $(id + " #slides").addClass("active");
                     }
-                    if (view == 1) {
+                    if (option == 1) {
                         arr = docs;
                         nump = arr.length;
                         pick = "docs";
                         $(id + " #docs").addClass("active");
                     }
-                    if (view == 2) {
+                    if (option == 2) {
                         arr = youtube;
                         nump = arr.length;
                         pick = "youtube";
@@ -116,15 +118,15 @@ function initialize() {
 
                     for (i = nump - 1; i > -1; i--) {
                         var pic;
-                        if (view == 0) {
+                        if (option == 0) {
                             pic = slides[i][1].split("/d/")[1].split("/")[0];
                             pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                         }
-                        if (view == 1) {
+                        if (option == 1) {
                             pic = docs[i][1].split("/d/")[1].split("/")[0];
                             pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                         }
-                        if (view == 2) {
+                        if (option == 2) {
                             pic = youtube_parser(youtube[i][1]);
                             pic = "https://img.youtube.com/vi/" + pic + "/maxresdefault.jpg";
                         }
@@ -151,42 +153,43 @@ function initialize() {
 
                 function moveLeftPdf() {
                     currp += sizep;
-                    viewp -= sizep;
+                    index -= 1;
                     $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
                 };
 
                 function moveRightPdf() {
                     currp -= sizep;
-                    viewp += sizep;
+                    index += 1;
                     $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
                 };
 
                 $(id + ' .fa-chevron-left.pa').click(function () {
-                    if (viewp > $(id + " .pdf-wrap").width())
+                    if (viewp + sizep * index > viewp)
                         moveLeftPdf();
                 });
 
                 $(id + ' .fa-chevron-right.pa').click(function () {
-                    if (viewp < nump * sizep - $(window).width() * .03)
+                    if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
                         moveRightPdf();
                 });
 
                 setInterval(() => {
-                    if (viewp <= $(id + " .pdf-wrap").width())
-                        $(id + ' .fa-chevron-left.pa').css("opacity", "0");
-                    else
-                        $(id + ' .fa-chevron-left.pa').css("opacity", "1");
-
-                    if (viewp >= nump * sizep - $(window).width() * .03)
-                        $(id + ' .fa-chevron-right.pa').css("opacity", "0");
-                    else
-                        $(id + ' .fa-chevron-right.pa').css("opacity", "1");
-                }, 200);
-
-                $(window).on('resize', function () {
                     sizep = $(".viewer .pdf-move a").width();
                     viewp = parseInt($(id + " .pdf-wrap").width());
+                    if (viewp + sizep * index > viewp)
+                        $(id + ' .fa-chevron-left.pa').css("opacity", "1");
+                    else
+                        $(id + ' .fa-chevron-left.pa').css("opacity", "0");
+
+                    if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
+                        $(id + ' .fa-chevron-right.pa').css("opacity", "1");
+                    else
+                        $(id + ' .fa-chevron-right.pa').css("opacity", "0");
+                }, 100);
+
+                $(window).on('resize', function () {
                     currp = 0;
+                    index = 0;
                     $(id + " .pdf-move").css("transform", "translateX(0%)");
                 });
             }
