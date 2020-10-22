@@ -44,9 +44,8 @@
 }
 
 #calendar {
-    width: 90%;
+    padding: 2vh 4vh;
     margin: auto;
-    padding-top: 2vh;
     font-family: "Lato" !important;
 }
 
@@ -151,6 +150,12 @@ div.desc {
     font-size: 1.7vh;
 }
 
+.fc-event-dot {
+    width: 1vh !important;
+    height: 1vh !important;
+    border-radius: 100%;
+}
+
 .fc-list-item.fc-allow-mouse-resize:hover> :nth-child(1) {
     border-top-left-radius: .75vh !important;
     border-bottom-left-radius: .75vh !important;
@@ -195,7 +200,7 @@ div.desc {
 }
 
 .fc-toolbar h2 {
-    font-size: 3vh !important;
+    font-size: 4vh !important;
     color: #fff;
 }
 
