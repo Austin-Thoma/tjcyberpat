@@ -17,7 +17,7 @@ function initialize() {
     });
 
     if (!isMobile)
-        particlesJS.load('particles-js', 'particles.json', function () {
+        particlesJS.load('particles-js', 'home.json', function () {
         });
 
     if (isMobile) {
