@@ -1,0 +1,31 @@
+@media only screen and (orientation:portrait) {
+    .landing .title {
+        font-size: 6vh;
+        margin-top: 0vh;
+    }
+
+    .landing .desc {
+        font-size: 2.5vh;
+    }
+
+    .info .desc {
+        width: 90%;
+        font-size: 1.8vh;
+    }
+
+    .info .slideshow {
+        width: 90%;
+    }
+
+    .team .row {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+}
+
+@media only screen and (orientation:landscape) {
+    .info .slick-dots button {
+        height: 1.5vw;
+        width: 1.5vw;
+    }
+}
