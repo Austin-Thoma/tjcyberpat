@@ -4,6 +4,12 @@
     font-weight: 100;
 }
 
+@font-face {
+    font-family: "Lato";
+    src: url("fonts/Lato/lato-light-webfont.woff2") format('woff2');
+    font-weight: 100;
+}
+
 body {
     padding-top: 2vh !important;
     background-color: #000;
@@ -35,7 +41,7 @@ body {
 p.title {
     text-align: center;
     font-size: 5vh;
-    font-family: 'Nunito';
+    font-family: 'Lato';
     font-weight: 100;
     color: #fff;
     margin-top: 5vh;
