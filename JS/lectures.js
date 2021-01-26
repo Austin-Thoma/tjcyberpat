@@ -36,7 +36,7 @@ function initialize() {
         disable_click = true;
         clearTimeout($.data(this, 'scrollTimer'));
         $.data(this, 'scrollTimer', setTimeout(function () {
-            disable_clickg = false;
+            disable_click = false;
         }, 250));
     });
 
@@ -48,7 +48,7 @@ function initialize() {
             pdfviewer("#windows10", [0, 1]);
             // pdfviewer("#windows81", [1]);
             pdfviewer("#ubuntu", [2, 3]);
-            // pdfviewer("#debian", [3]);
+            pdfviewer("#cisco", [4]);
 
             function youtube_parser(url) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -84,7 +84,10 @@ function initialize() {
                     }
                 }
 
-                update(0);
+                if (sheetindex[0] == 4)
+                    update(1);
+                else
+                    update(0);
 
                 function update(option) {
                     viewp = parseInt($(id + " .pdf-wrap").width());
