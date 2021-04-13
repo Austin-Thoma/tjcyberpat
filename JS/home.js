@@ -43,6 +43,7 @@ function initialize() {
         infinite: true,
         centerMode: true,
         autoplay: true,
+        focusOnSelect: true,
         autoplaySpeed: 3000,
         centerPadding: '0px',
         slidesToShow: 3
