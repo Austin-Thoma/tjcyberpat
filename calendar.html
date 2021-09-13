@@ -179,10 +179,7 @@
         var day = date.split("/")[1];
         day = day.length > 1 ? day : '0' + day;
 
-        var year = (new Date()).getFullYear();
-
-        if (parseInt(month) <= 12 && parseInt(month) > 7)
-            year -= 1;
+        var year = date.split("/")[2];
 
         var dateStr = year + "-" + month + "-" + day;
         date = new Date(dateStr + 'T00:00:00');
@@ -190,7 +187,7 @@
     }
 
     $.ajax({
-        url: "https://sheets.googleapis.com/v4/spreadsheets/1UYVpeGzXBm_d3PsF0eeVX7jYRMgR3Dt81CWIxa76smk/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
+        url: "https://sheets.googleapis.com/v4/spreadsheets/19fD8MGGMfM36YPLVdbnkOpMgfgrHY9NSdPNknJvI1iY/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
         type: "get",
         async: false,
         success: function (data) {
@@ -226,18 +223,20 @@
                         link = ""
 
                     var temp = end.split("/");
-                    end = temp[0] + "/" + (parseInt(temp[1]) + 1);
+                    end = temp[0] + "/" + (parseInt(temp[1]) + 1) + "/" + temp[2];
 
-                    console.log(req, arr[i])
+                    console.log(start, getdate(start), end, getdate(end));
 
-                    calendar.addEvent({
-                        title: title,
-                        start: getdate(start),
-                        end: getdate(end),
-                        allDay: true,
-                        backgroundColor: color,
-                        id: link + " __ " + desc,
-                    });
+                    if (title) {
+                        calendar.addEvent({
+                            title: title,
+                            start: getdate(start),
+                            end: getdate(end),
+                            allDay: true,
+                            backgroundColor: color,
+                            id: link + " __ " + desc,
+                        });
+                    }
                 }
             }
         }
