@@ -15,6 +15,12 @@ function initialize() {
         }
     }
 
+    // year picker
+    $(".select-year .year").on("click", function () {
+        $(".select-year .year").removeClass("selected");
+        $(this).addClass("selected");
+    })
+
     var oldwidth;
     $(document).on('mouseenter', '.pdf', function () {
         var newwidth = Math.max($(this).children(".label").get(0).scrollWidth, $(window).width() * .2);
