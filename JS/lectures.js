@@ -51,10 +51,9 @@ function initialize() {
         type: "get",
         async: false,
         success: function (data) {
-            pdfviewer("#windows10", [0, 1]);
-            // pdfviewer("#windows81", [1]);
-            pdfviewer("#ubuntu", [2, 3]);
-            pdfviewer("#cisco", [4]);
+            pdfviewer("#windows10", [0]);
+            pdfviewer("#ubuntu", [1]);
+            pdfviewer("#cisco", [2]);
 
             function youtube_parser(url) {
                 var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
@@ -142,7 +141,7 @@ function initialize() {
                         append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
                         append += pic + '"></div><p class="label">' + arr[i][0];
                         append += '</p></div></a>';
-                        sizep = $(".viewer .pdf-move a").width();;
+                        sizep = $(".viewer .pdf-move a").width();
                     }
 
                     $(id + " .pdf-move").append(append);
