@@ -214,7 +214,6 @@ div.switch img {
     color: #3BB5FC;
     transition: 0.3s;
     z-index: 9;
-    opacity: 0;
 }
 
 .fa-chevron-left.pa {

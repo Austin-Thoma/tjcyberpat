@@ -16,9 +16,21 @@ function initialize() {
     }
 
     // year picker
+    var yearUrls = {
+        2022: "https://sheets.googleapis.com/v4/spreadsheets/1f6oWH5LXmN-sWCW2CmAhvIYH9B8mCu-KHIGpitq6ovE/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
+        2021: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true"
+    }
+
+    lectureData = {}
+
+    $(document).ready(function () {
+        displayLectures($(".select-year .selected").attr("year"))
+    });
+
     $(".select-year .year").on("click", function () {
         $(".select-year .year").removeClass("selected");
         $(this).addClass("selected");
+        displayLectures($(".select-year .selected").attr("year"))
     })
 
     var oldwidth;
@@ -46,163 +58,171 @@ function initialize() {
         }, 250));
     });
 
-    $.ajax({
-        url: "https://sheets.googleapis.com/v4/spreadsheets/121OxdTcwN6yTT4UZZlR6w2zwbzBL7u50kjpeIHDPYCs/?key=AIzaSyCTbB_t6RGvXxjBzaV3EOUsUh3xbr0QeQc&includeGridData=true",
-        type: "get",
-        async: false,
-        success: function (data) {
-            pdfviewer("#windows10", [0]);
-            pdfviewer("#ubuntu", [1]);
-            pdfviewer("#cisco", [2]);
+    function displayLectures(year) {
+        year = parseInt(year);
+        if (lectureData[year] == undefined) {
+            $.ajax({
+                url: yearUrls[year],
+                type: "get",
+                async: false,
+                success: function (data) {
+                    lectureData[year] = data;
+                }
+            });
+        }
 
-            function youtube_parser(url) {
-                var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-                var match = url.match(regExp);
-                return (match && match[7].length == 11) ? match[7] : false;
+        data = lectureData[year];
+
+        pdfviewer("#windows10", [0]);
+        pdfviewer("#ubuntu", [1]);
+        pdfviewer("#cisco", [2]);
+
+        function youtube_parser(url) {
+            var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+            var match = url.match(regExp);
+            return (match && match[7].length == 11) ? match[7] : false;
+        }
+
+        function pdfviewer(id, sheetindex) {
+            var sizep = $(".viewer .pdf-move a").width();
+            var nump;
+            var index = 0;
+            var currp = 0;
+            var viewp = parseInt($(id + " .pdf-wrap").width());
+            var slides = [];
+            var docs = [];
+            var youtube = [];
+
+            for (k = 0; k < sheetindex.length; k++) {
+                var arr = data.sheets[sheetindex[k]].data[0].rowData;
+                for (i = 1; i < arr.length; i++) {
+                    try {
+                        if (arr[i].values[0].formattedValue != null && arr[i].values[1].formattedValue != null)
+                            slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
+                    } catch (error) {}
+                    try {
+                        if (arr[i].values[2].formattedValue != null && arr[i].values[3].formattedValue != null)
+                            docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
+                    } catch (error) {}
+                    try {
+                        if (arr[i].values[4].formattedValue != null && arr[i].values[5].formattedValue != null)
+                            youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
+                    } catch (error) {}
+                }
             }
 
-            function pdfviewer(id, sheetindex) {
-                var sizep = $(".viewer .pdf-move a").width();
-                var nump;
-                var index = 0;
-                var currp = 0;
-                var viewp = parseInt($(id + " .pdf-wrap").width());
-                var slides = [];
-                var docs = [];
-                var youtube = [];
+            if (sheetindex[0] == 4)
+                update(1);
+            else
+                update(0);
 
-                for (k = 0; k < sheetindex.length; k++) {
-                    var arr = data.sheets[sheetindex[k]].data[0].rowData;
-                    for (i = 1; i < arr.length; i++) {
-                        try {
-                            if (arr[i].values[0].formattedValue != null && arr[i].values[1].formattedValue != null)
-                                slides.push([arr[i].values[0].formattedValue, arr[i].values[1].formattedValue]);
-                        } catch (error) {}
-                        try {
-                            if (arr[i].values[2].formattedValue != null && arr[i].values[3].formattedValue != null)
-                                docs.push([arr[i].values[2].formattedValue, arr[i].values[3].formattedValue]);
-                        } catch (error) {}
-                        try {
-                            if (arr[i].values[4].formattedValue != null && arr[i].values[5].formattedValue != null)
-                                youtube.push([arr[i].values[4].formattedValue, arr[i].values[5].formattedValue]);
-                        } catch (error) {}
-                    }
+            function update(option) {
+                viewp = parseInt($(id + " .pdf-wrap").width());
+                currp = 0;
+                index = 0;
+                $(id + " .pdf-move").html("");
+                $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
+                var append = '';
+                var arr;
+                var pick;
+
+                $(id + " .switch").removeClass("active");
+                if (option == 0) {
+                    arr = slides;
+                    nump = arr.length;
+                    pick = "slides";
+                    $(id + " #slides").addClass("active");
+                }
+                if (option == 1) {
+                    arr = docs;
+                    nump = arr.length;
+                    pick = "docs";
+                    $(id + " #docs").addClass("active");
+                }
+                if (option == 2) {
+                    arr = youtube;
+                    nump = arr.length;
+                    pick = "youtube";
+                    $(id + " #youtube").addClass("active");
                 }
 
-                if (sheetindex[0] == 4)
-                    update(1);
-                else
-                    update(0);
-
-                function update(option) {
-                    viewp = parseInt($(id + " .pdf-wrap").width());
-                    currp = 0;
-                    index = 0;
-                    $(id + " .pdf-move").html("");
-                    $(id + " .pdf-move").css("transform", "translateX(" + currp + "%)");
-                    var append = '';
-                    var arr;
-                    var pick;
-
-                    $(id + " .switch").removeClass("active");
+                for (i = nump - 1; i > -1; i--) {
+                    var pic;
                     if (option == 0) {
-                        arr = slides;
-                        nump = arr.length;
-                        pick = "slides";
-                        $(id + " #slides").addClass("active");
+                        pic = slides[i][1].split("/d/")[1].split("/")[0];
+                        pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                     }
                     if (option == 1) {
-                        arr = docs;
-                        nump = arr.length;
-                        pick = "docs";
-                        $(id + " #docs").addClass("active");
+                        pic = docs[i][1].split("/d/")[1].split("/")[0];
+                        pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
                     }
                     if (option == 2) {
-                        arr = youtube;
-                        nump = arr.length;
-                        pick = "youtube";
-                        $(id + " #youtube").addClass("active");
+                        pic = youtube_parser(youtube[i][1]);
+                        pic = "https://img.youtube.com/vi/" + pic + "/maxresdefault.jpg";
                     }
-
-                    for (i = nump - 1; i > -1; i--) {
-                        var pic;
-                        if (option == 0) {
-                            pic = slides[i][1].split("/d/")[1].split("/")[0];
-                            pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
-                        }
-                        if (option == 1) {
-                            pic = docs[i][1].split("/d/")[1].split("/")[0];
-                            pic = "https://lh3.googleusercontent.com/d/" + pic + "=w640"
-                        }
-                        if (option == 2) {
-                            pic = youtube_parser(youtube[i][1]);
-                            pic = "https://img.youtube.com/vi/" + pic + "/maxresdefault.jpg";
-                        }
-                        append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
-                        append += pic + '"></div><p class="label">' + arr[i][0];
-                        append += '</p></div></a>';
-                        sizep = $(".viewer .pdf-move a").width();
-                    }
-
-                    $(id + " .pdf-move").append(append);
+                    append += '<a href="' + arr[i][1] + '" target="_blank"><div class="pdf"><div class="img-wrap ' + pick + '"><img src="';
+                    append += pic + '"></div><p class="label">' + arr[i][0];
+                    append += '</p></div></a>';
+                    sizep = $(".viewer .pdf-move a").width();
                 }
 
-                $(id + ' #slides').click(function () {
-                    update(0);
-                });
-
-                $(id + ' #docs').click(function () {
-                    update(1);
-                });
-
-                $(id + ' #youtube').click(function () {
-                    update(2);
-                });
-
-                function moveLeftPdf() {
-                    currp += sizep;
-                    index -= 1;
-                    $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
-                };
-
-                function moveRightPdf() {
-                    currp -= sizep;
-                    index += 1;
-                    $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
-                };
-
-                $(id + ' .fa-chevron-left.pa').click(function () {
-                    if (viewp + sizep * index > viewp)
-                        moveLeftPdf();
-                });
-
-                $(id + ' .fa-chevron-right.pa').click(function () {
-                    if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
-                        moveRightPdf();
-                });
-
-                setInterval(() => {
-                    sizep = $(".viewer .pdf-move a").width();
-                    viewp = parseInt($(id + " .pdf-wrap").width());
-                    if (viewp + sizep * index > viewp)
-                        $(id + ' .fa-chevron-left.pa').css("opacity", "1");
-                    else
-                        $(id + ' .fa-chevron-left.pa').css("opacity", "0");
-
-                    if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
-                        $(id + ' .fa-chevron-right.pa').css("opacity", "1");
-                    else
-                        $(id + ' .fa-chevron-right.pa').css("opacity", "0");
-                }, 100);
-
-                $(window).on('resize', function () {
-                    currp = 0;
-                    index = 0;
-                    $(id + " .pdf-move").css("transform", "translateX(0%)");
-                });
+                $(id + " .pdf-move").append(append);
             }
 
+            $(id + ' #slides').click(function () {
+                update(0);
+            });
+
+            $(id + ' #docs').click(function () {
+                update(1);
+            });
+
+            $(id + ' #youtube').click(function () {
+                update(2);
+            });
+
+            function moveLeftPdf() {
+                currp += sizep;
+                index -= 1;
+                $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
+            };
+
+            function moveRightPdf() {
+                currp -= sizep;
+                index += 1;
+                $(id + " .pdf-move").css("transform", "translateX(" + currp + "px)");
+            };
+
+            $(id + ' .fa-chevron-left.pa').click(function () {
+                if (viewp + sizep * index > viewp)
+                    moveLeftPdf();
+            });
+
+            $(id + ' .fa-chevron-right.pa').click(function () {
+                if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
+                    moveRightPdf();
+            });
+
+            // setInterval(() => {
+            //     sizep = $(".viewer .pdf-move a").width();
+            //     viewp = parseInt($(id + " .pdf-wrap").width());
+            //     if (viewp + sizep * index > viewp)
+            //         $(id + ' .fa-chevron-left.pa').css("opacity", "1");
+            //     else
+            //         $(id + ' .fa-chevron-left.pa').css("opacity", "0");
+
+            //     if (viewp + sizep * index < nump * sizep - $(window).width() * .03)
+            //         $(id + ' .fa-chevron-right.pa').css("opacity", "1");
+            //     else
+            //         $(id + ' .fa-chevron-right.pa').css("opacity", "0");
+            // }, 100);
+
+            $(window).on('resize', function () {
+                currp = 0;
+                index = 0;
+                $(id + " .pdf-move").css("transform", "translateX(0%)");
+            });
         }
-    });
+    }
 }
 $(initialize);
