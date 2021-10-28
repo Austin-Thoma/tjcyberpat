@@ -111,7 +111,7 @@ function initialize() {
                 }
             }
 
-            if (sheetindex[0] == 4)
+            if (sheetindex[0] == 2)
                 update(1);
             else
                 update(0);
