@@ -336,8 +336,8 @@
 }
 
 .team img {
-    width: 14vh;
-    height: 14vh;
+    width: auto;   /* 14vh*/
+    height: 60vh;
     border-radius: 0.5vh;
 }
 
@@ -348,4 +348,9 @@
     text-align: center;
     margin-top: 1.2vh;
     line-height: 2.7vh;
+}
+
+.team .desc {
+    font-size: 1.8vh;
+    margin-top: .5vh;
 }
